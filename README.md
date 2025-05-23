@@ -23,7 +23,7 @@ Flor do Campo é um e-commerce especializado em produtos naturais, orgânicos e 
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/seu-usuario">
+      <a href="https://github.com/Vinii225">
         <img src="https://github.com/identicon.png" width="100px;" alt="Avatar"/><br>
         <sub><b>Vinicius Ares</b></sub>
       </a>
