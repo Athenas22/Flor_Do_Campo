@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 * {
     margin: 0;
     padding: 0;
@@ -89,6 +91,7 @@
 section {
     padding: 2rem;
     background-color: var(--background-color);
+    margin-top: 0; /* Added this line */
 }
 
 section h2 {
@@ -130,8 +133,15 @@ section h2::after {
 
 .produto-card img {
     width: 100%;
-    height: auto;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensures image covers area without distortion */
     border-radius: 4px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.produto-card img:hover {
+    transform: scale(1.05);
 }
 
 .produto-card button {
@@ -377,7 +387,7 @@ footer {
     align-items: center;
     text-align: center;
     color: #fff;
-    margin-bottom: 30px;
+    margin-bottom: 0; /* Changed from 30px to 0 */
 }
 
 .banner-content {
