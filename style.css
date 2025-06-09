@@ -132,12 +132,17 @@ section h2::after {
 }
 
 .produto-card img {
+  display: block;
+  margin: 0 auto;
   width: 100%;
-  height: 200px; /* Fixed height for consistency */
-  object-fit: cover; /* Ensures image covers area without distortion */
+  max-width: 220px;
+  height: 200px;
+  object-fit: contain; /* Exibe a imagem inteira sem distorcer */
+  background: #f8f8f8; /* Fundo claro para imagens com transparência */
   border-radius: 4px;
   margin-bottom: 1rem;
   transition: transform 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .produto-card img:hover {
@@ -431,6 +436,16 @@ footer {
   background-color: #45a049;
   transform: translateY(-3px);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Fontes para títulos e subtítulos */
+h1, h2, h3 {
+  font-family: 'Cinzel', serif;
+}
+
+/* Fonte para textos comuns */
+body, p, li, a, button, input, label, span, ul, ol, .btn-carrinho, .btn-detalhes {
+  font-family: 'Lora', serif;
 }
 
 @media (max-width: 768px) {
