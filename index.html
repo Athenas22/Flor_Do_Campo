@@ -37,8 +37,6 @@
         </div>
       </div>
     </nav>
-
-    <!-- Banner de Boas-Vindas -->
     <section class="banner-boas-vindas">
       <div class="banner-content">
         <h1>Bem-vindo à Flor do Campo</h1>
@@ -53,7 +51,7 @@
         <div class="produto-card">
           <a href="ProductPage/produto.html" class="produto-link">
             <img
-              src="img/folha-de-chá-verde-fresca-e-mate-instantâneo-em-tigela-madeira-fundo-branco-isolada-175579425.webp"
+              src="img/cha-verde.webp"
               alt="Chá Verde Orgânico"
             />
             <h3>Chá Verde Orgânico</h3>
@@ -68,7 +66,7 @@
         <div class="produto-card">
           <a href="ProductPage/produto.html" class="produto-link">
             <img
-              src="img/frasco-de-oleo-essencial-de-eucalipto-com-folhas-em-fundo-branco_51524-19593.avif"
+              src="img/frasco-oleo-essencial.avif"
               alt="Óleo Essencial de Lavanda"
             />
             <h3>Óleo Essencial de Lavanda</h3>
@@ -82,7 +80,7 @@
         </div>
         <div class="produto-card">
           <a href="ProductPage/produto.html" class="produto-link">
-            <img src="img/garanapo.jpeg" alt="Guaraná em Pó" />
+            <img src="img/garana-po.jpeg" alt="Guaraná em Pó" />
             <h3>Guaraná em Pó</h3>
             <p class="preco-antigo">R$ 32,90</p>
             <p class="preco-atual">R$ 27,90</p>
@@ -94,7 +92,7 @@
         </div>
         <div class="produto-card">
           <a href="ProductPage/produto.html" class="produto-link">
-            <img src="img/saboneteargila.jpeg" alt="Sabonete de Argila" />
+            <img src="img/sabonete-argila.jpeg" alt="Sabonete de Argila" />
             <h3>Sabonete de Argila</h3>
             <p class="preco-antigo">R$ 15,90</p>
             <p class="preco-atual">R$ 12,90</p>
@@ -113,7 +111,7 @@
         <div class="produto-card">
           <a href="ProductPage/produto.html" class="produto-link">
             <img
-              src="img/mel_puro_250g_1011_1_20200507094756.webp"
+              src="img/mel-puro.webp"
               alt="Mel Puro"
             />
             <h3>Mel Puro</h3>
@@ -149,7 +147,7 @@
         <div class="produto-card">
           <a href="ProductPage/produto.html" class="produto-link">
             <img
-              src="img/chá-camomila-com-flores-frescas-isoladas-em-fundo-branco-176516567.webp"
+              src="img/cha-camomila.webp"
               alt="Chá de Camomila"
             />
             <h3>Chá de Camomila</h3>
@@ -166,13 +164,15 @@
     <section class="catalogo">
       <h2>Nosso Catálogo</h2>
       <div class="categorias">
-        <button>Chás</button>
-        <button>Cosméticos</button>
-        <button>Alimentos</button>
-        <button>Suplementos</button>
+        <button class="categoria-btn" data-categoria="todos">Todos</button>
+        <button class="categoria-btn" data-categoria="cha">Chás</button>
+        <button class="categoria-btn" data-categoria="cosmetic">Cosméticos</button>
+        <button class="categoria-btn" data-categoria="alimento">Alimentos</button>
+        <button class="categoria-btn" data-categoria="suplemento">Suplementos</button>
       </div>
-      <div class="produtos-grid">
-        <!-- Cards de produtos do catálogo -->
+      
+      <div id="produtos-container" class="produtos-grid">
+        <!-- produtos q virão do JS -->
       </div>
     </section>
 
@@ -245,5 +245,6 @@
       </div>
     </footer>
     <script src="/main.js" type="module"></script>
+    <script src="js/catalogo.js" type="module"></script>
   </body>
 </html>
