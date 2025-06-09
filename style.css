@@ -38,6 +38,17 @@
   font-weight: bold;
 }
 
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.logo-link:hover {
+  transform: scale(1.02);
+}
+
 .nav-right {
   display: flex;
   align-items: center;
