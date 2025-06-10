@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Flor do Campo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/LoginPage/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Flor do Campo 🌼</h1>
+        </div>
+        <div class="nav-right">
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar produtos...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#" class="active"><i class="fas fa-user"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="login-container">
+        <div class="login-box">
+            <h2>Entrar na Conta</h2>
+            <form class="login-form" id="login-form">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" required placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" required placeholder="Sua senha">
+                </div>
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="lembrar"> Lembrar-me
+                    </label>
+                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                </div>
+                <button type="submit" class="btn-login">Entrar</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Flor do Campo. Todos os direitos reservados.</p>
+    </footer>
+    <script src="src/LoginPage/login.js"></script>
+</body>
+</html>
