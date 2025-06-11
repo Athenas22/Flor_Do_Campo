@@ -1,25 +1,22 @@
-<!DOCTYPE html>
-<!-- Add commentMore actions -->
+<!-- <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flor do Campo - Produtos Naturais</title>
-
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="produto.css" />
+    <link rel="stylesheet" href="style/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <input type="checkbox" id="cart-toggle" class="hidden peer" />
+
     <nav class="navbar">
       <div class="logo">
         <a href="index.html" class="logo-link">
@@ -32,11 +29,57 @@
           <button><i class="fas fa-search"></i></button>
         </div>
         <div class="nav-icons">
-          <a href="#"><i class="fas fa-shopping-cart"></i></a>
+          <label
+            for="cart-toggle"
+            id="btn-carrinho-icone"
+            class="text-green-700 hover:text-green-800 cursor-pointer transition-all"
+          >
+            <i class="fas fa-shopping-cart text-xl"></i>
+          </label>
           <a href="login.html"><i class="fas fa-user"></i></a>
         </div>
       </div>
     </nav>
+
+    <aside
+      class="fixed top-0 right-[-450px] w-[400px] h-full bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 peer-checked:translate-x-[-450px]"
+    >
+      <div class="flex flex-col h-full">
+        <div
+          class="flex items-center justify-between p-4 border-b border-gray-200"
+        >
+          <h2 class="text-xl font-semibold text-gray-800">Seu Carrinho</h2>
+          <label
+            for="cart-toggle"
+            class="cursor-pointer hover:text-gray-600 transition-colors"
+          >
+            <i class="fas fa-times text-xl"></i>
+          </label>
+        </div>
+
+        <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-4"></div>
+
+        <div class="border-t border-gray-200 p-4 bg-gray-50">
+          <div class="flex justify-between mb-4">
+            <span class="font-medium text-gray-800">Total:</span>
+            <span class="font-bold text-gray-900"
+              >R$ <span id="cart-total">0.00</span></span
+            >
+          </div>
+          <button
+            class="w-full bg-green-600 text-white py-3 rounded-lg font-medium hover:bg-green-700 transition-colors"
+          >
+            Finalizar Compra
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <label
+      for="cart-toggle"
+      class="fixed inset-0 bg-black opacity-0 invisible peer-checked:opacity-50 peer-checked:visible transition-opacity duration-300 z-40"
+    ></label>
+
     <section class="banner-boas-vindas">
       <div class="banner-content">
         <h1>Bem-vindo à Flor do Campo</h1>
@@ -50,23 +93,26 @@
       <div class="produtos-grid">
         <div class="produto-card">
           <a href="ProductPage/produto.html" class="produto-link">
-            <img
-              src="img/cha-verde.webp"
-              alt="Chá Verde Orgânico"
-            />
+            <img src="src/assets/img/cha-verde.webp" alt="Chá Verde Orgânico" />
             <h3>Chá Verde Orgânico</h3>
             <p class="preco-antigo">R$ 29,90</p>
             <p class="preco-atual">R$ 24,90</p>
           </a>
           <div class="card-actions">
-            <button class="btn-carrinho">Adicionar ao Carrinho</button>
-            <a href="ProductPage/produto.html" class="btn-detalhes">Ver Detalhes</a>
+            <button
+              class="btn-carrinho"
+              data-id="1"
+              data-nome="Chá Verde Orgânico"
+              data-preco="24.90"
+            >
+              Adicionar ao Carrinho
+            </button>
           </div>
         </div>
         <div class="produto-card">
           <a href="ProductPage/produto.html" class="produto-link">
             <img
-              src="img/frasco-oleo-essencial.avif"
+              src="src/assets/img/frasco-de-oleo-essencial-de-eucalipto-com-folhas-em-fundo-branco_51524-19593.avif"
               alt="Óleo Essencial de Lavanda"
             />
             <h3>Óleo Essencial de Lavanda</h3>
@@ -74,89 +120,228 @@
             <p class="preco-atual">R$ 39,90</p>
           </a>
           <div class="card-actions">
-            <button class="btn-carrinho">Adicionar ao Carrinho</button>
-            <a href="ProductPage/produto.html" class="btn-detalhes">Ver Detalhes</a>
+            <button
+              class="btn-carrinho"
+              data-id="2"
+              data-nome="Óleo Essencial de Lavanda"
+              data-preco="39.90"
+            >
+              Adicionar ao Carrinho
+            </button>
           </div>
-        </div>
-        <div class="produto-card">
-          <a href="ProductPage/produto.html" class="produto-link">
-            <img src="img/garana-po.jpeg" alt="Guaraná em Pó" />
-            <h3>Guaraná em Pó</h3>
-            <p class="preco-antigo">R$ 32,90</p>
-            <p class="preco-atual">R$ 27,90</p>
-          </a>
-          <div class="card-actions">
-            <button class="btn-carrinho">Adicionar ao Carrinho</button>
-            <a href="ProductPage/produto.html" class="btn-detalhes">Ver Detalhes</a>
-          </div>
-        </div>
-        <div class="produto-card">
-          <a href="ProductPage/produto.html" class="produto-link">
-            <img src="img/sabonete-argila.jpeg" alt="Sabonete de Argila" />
-            <h3>Sabonete de Argila</h3>
-            <p class="preco-antigo">R$ 15,90</p>
-            <p class="preco-atual">R$ 12,90</p>
-          </a>
-          <div class="card-actions">
-            <button class="btn-carrinho">Adicionar ao Carrinho</button>
-            <a href="ProductPage/produto.html" class="btn-detalhes">Ver Detalhes</a>
-          </div>
-        </div>
-      </div>
-    </section>
+          <div class="produto-card">
 
-    <section class="mais-vendidos">
-      <h2>Mais Vendidos</h2>
-      <div class="produtos-grid">
-        <div class="produto-card">
-          <a href="ProductPage/produto.html" class="produto-link">
-            <img
-              src="img/mel-puro.webp"
-              alt="Mel Puro"
-            />
-            <h3>Mel Puro</h3>
-            <p class="preco">R$ 35,90</p>
-          </a>
-          <div class="card-actions">
-            <button class="btn-carrinho">Adicionar ao Carrinho</button>
-            <a href="ProductPage/produto.html" class="btn-detalhes">Ver Detalhes</a>
-          </div>
-        </div>
-        <div class="produto-card">
-          <a href="ProductPage/produto.html" class="produto-link">
-            <img src="img/granola.jpeg" alt="Granola Artesanal" />
-            <h3>Granola Artesanal</h3>
-            <p class="preco">R$ 28,90</p>
-          </a>
-          <div class="card-actions">
-            <button class="btn-carrinho">Adicionar ao Carrinho</button>
-            <a href="ProductPage/produto.html" class="btn-detalhes">Ver Detalhes</a>
-          </div>
-        </div>
-        <div class="produto-card">
-          <a href="ProductPage/produto.html" class="produto-link">
-            <img src="img/propolis.jpeg" alt="Própolis Verde" />
-            <h3>Própolis Verde</h3>
-            <p class="preco">R$ 42,90</p>
-          </a>
-          <div class="card-actions">
-            <button class="btn-carrinho">Adicionar ao Carrinho</button>
-            <a href="ProductPage/produto.html" class="btn-detalhes">Ver Detalhes</a>
-          </div>
-        </div>
-        <div class="produto-card">
-          <a href="ProductPage/produto.html" class="produto-link">
-            <img
-              src="img/cha-camomila.webp"
-              alt="Chá de Camomila"
-            />
-            <h3>Chá de Camomila</h3>
-            <p class="preco">R$ 18,90</p>
-          </a>
-          <div class="card-actions">
-            <button class="btn-carrinho">Adicionar ao Carrinho</button>
-            <a href="ProductPage/produto.html" class="btn-detalhes">Ver Detalhes</a>
-          </div>
+          <a href="ProductPage/produto.html" class="produto-link">
+
+            <img src="src/assets/img/garana-po.jpeg" alt="Guaraná em Pó" />
+
+            <h3>Guaraná em Pó</h3>
+
+            <p class="preco-antigo">R$ 32,90</p>
+
+            <p class="preco-atual">R$ 27,90</p>
+
+          </a>
+
+          <div class="card-actions">
+
+            <button class="btn-carrinho"
+
+                    data-id="${produto.id}"
+
+                    data-nome="Guaraná em Pó"
+
+                    data-preco="27.90">
+
+                Adicionar ao Carrinho
+
+            </button>
+
+            <a href="ProductPage/produto.html" class="btn-detalhes">Ver Detalhes</a>
+
+          </div>
+
+        </div>
+
+        <div class="produto-card">
+
+          <a href="ProductPage/produto.html" class="produto-link">
+
+            <img src="src/assets/img/sabonete-argila.jpeg" alt="Sabonete de Argila" />
+
+            <h3>Sabonete de Argila</h3>
+
+            <p class="preco-antigo">R$ 15,90</p>
+
+            <p class="preco-atual">R$ 12,90</p>
+
+          </a>
+
+          <div class="card-actions">
+
+            <button class="btn-carrinho"
+
+                    data-id="${produto.id}"
+
+                    data-nome="Sabonete de Argila"
+
+                    data-preco="12.90">
+
+                Adicionar ao Carrinho
+
+            </button>
+
+            <a href="ProductPage/produto.html" class="btn-detalhes">Ver Detalhes</a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <section class="mais-vendidos">
+
+      <h2>Mais Vendidos</h2>
+
+      <div class="produtos-grid">
+
+        <div class="produto-card">
+
+          <a href="ProductPage/produto.html" class="produto-link">
+
+            <img
+
+              src="src/assets/img/mel-puro.webp"
+
+              alt="Mel Puro"
+
+            />
+
+            <h3>Mel Puro</h3>
+
+            <p class="preco">R$ 35,90</p>
+
+          </a>
+
+          <div class="card-actions">
+
+            <button class="btn-carrinho"
+
+                    data-id="5"
+
+                    data-nome="Mel Puro"
+
+                    data-preco="35.90">
+
+              Adicionar ao Carrinho
+
+            </button>
+
+            <a href="ProductPage/produto.html" class="btn-detalhes">Ver Detalhes</a>
+
+          </div>
+
+        </div>
+
+        <div class="produto-card">
+
+          <a href="ProductPage/produto.html" class="produto-link">
+
+            <img src="src/assets/img/granola.jpeg" alt="Granola Artesanal" />
+
+            <h3>Granola Artesanal</h3>
+
+            <p class="preco">R$ 28,90</p>
+
+          </a>
+
+          <div class="card-actions">
+
+            <button class="btn-carrinho"
+
+                    data-id="6"
+
+                    data-nome="Granola Artesanal"
+
+                    data-preco="28.90">
+
+              Adicionar ao Carrinho
+
+            </button>
+
+            <a href="ProductPage/produto.html" class="btn-detalhes">Ver Detalhes</a>
+
+          </div>
+
+        </div>
+
+        <div class="produto-card">
+
+          <a href="ProductPage/produto.html" class="produto-link">
+
+            <img src="src/assets/img/propolis.jpeg" alt="Própolis Verde" />
+
+            <h3>Própolis Verde</h3>
+
+            <p class="preco">R$ 42,90</p>
+
+          </a>
+
+          <div class="card-actions">
+
+            <button class="btn-carrinho"
+
+                    data-id="7"
+
+                    data-nome="Própolis Verde"
+
+                    data-preco="42.90">
+
+              Adicionar ao Carrinho
+
+            </button>
+
+            <a href="ProductPage/produto.html" class="btn-detalhes">Ver Detalhes</a>
+
+          </div>
+
+        </div>
+
+        <div class="produto-card">
+
+          <a href="ProductPage/produto.html" class="produto-link">
+
+            <img src="src/assets/img/cha-camomila.webp" alt="Chá de Camomila" />
+
+            <h3>Chá de Camomila</h3>
+
+            <p class="preco">R$ 18,90</p>
+
+          </a>
+
+          <div class="card-actions">
+
+            <button class="btn-carrinho"
+
+                    data-id="8"
+
+                    data-nome="Chá de Camomila"
+
+                    data-preco="18.90">
+
+Adicionar ao Carrinho
+</button>
+
+<a href="ProductPage/produto.html" class="btn-detalhes">Ver Detalhes</a>
+</div>
+</div>
+</div>
+
+ </section>
         </div>
       </div>
     </section>
@@ -164,89 +349,499 @@
     <section class="catalogo">
       <h2>Nosso Catálogo</h2>
       <div class="categorias">
-        <button class="categoria-btn" data-categoria="todos">Todos</button>
+        <button class="categoria-btn categoria-ativa" data-categoria="todos">
+          Todos
+        </button>
         <button class="categoria-btn" data-categoria="cha">Chás</button>
-        <button class="categoria-btn" data-categoria="cosmetic">Cosméticos</button>
-        <button class="categoria-btn" data-categoria="alimento">Alimentos</button>
-        <button class="categoria-btn" data-categoria="suplemento">Suplementos</button>
+        <button class="categoria-btn" data-categoria="cosmetico">
+          Cosméticos
+        </button>
+        <button class="categoria-btn" data-categoria="alimento">
+          Alimentos
+        </button>
+        <button class="categoria-btn" data-categoria="suplemento">
+          Suplementos
+        </button>
       </div>
-      
-      <div id="produtos-container" class="produtos-grid">
-        <!-- produtos q virão do JS -->
-      </div>
+      <div id="produtos-container" class="produtos-grid"></div>
     </section>
 
-    <footer>
-      <div class="footer-content">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <h2>🌼 Flor do Campo</h2>
-            <p>Produtos naturais para uma vida mais saudável</p>
-          </div>
-        </div>
-
-        <div class="footer-links">
-          <h3>Sobre Nós</h3>
-          <ul>
-            <li><a href="#">Nossa História</a></li>
-            <li><a href="#">Missão e Valores</a></li>
-            <li><a href="#">Sustentabilidade</a></li>
-            <li><a href="#">Blog</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-info">
-          <h3>Políticas</h3>
-          <ul>
-            <li><a href="#">Termos de Uso</a></li>
-            <li><a href="#">Privacidade</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Entregas</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-social">
-          <h3>Contato</h3>
-          <div class="footer-contato">
-            <a href="tel:+558330000000">
-              <i class="fas fa-phone"></i>
-              (83) 3000-0000
+    <footer class="text-white">
+      <div class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="mb-6 md:mb-0">
+            <a href="index.html" class="flex items-center mb-4">
+              <h2 class="text-2xl font-bold">Flor do Campo 🌼</h2>
             </a>
-            <a href="mailto:contato@flordocampo.com">
-              <i class="fas fa-envelope"></i>
-              contato@flordocampo.com
-            </a>
+            <p class="mb-6 text-sm">
+              Produtos naturais selecionados para uma vida mais saudável e
+              equilibrada.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                title="Instagram"
+                class="hover:text-green-700 transition-colors"
+              >
+                <i class="fab fa-instagram fa-lg"></i>
+              </a>
+              <a
+                href="#"
+                title="Facebook"
+                class="hover:text-green-700 transition-colors"
+              >
+                <i class="fab fa-facebook fa-lg"></i>
+              </a>
+              <a
+                href="#"
+                title="WhatsApp"
+                class="hover:text-green-700 transition-colors"
+              >
+                <i class="fab fa-whatsapp fa-lg"></i>
+              </a>
+            </div>
           </div>
-          <div class="social-icons">
-            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+          <div>
+            <h3 class="font-semibold mb-4">Sobre Nós</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#" class="hover:text-green-700 transition-colors"
+                  >Nossa História</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-700 transition-colors"
+                  >Missão e Valores</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-700 transition-colors"
+                  >Sustentabilidade</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-700 transition-colors"
+                  >Blog</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-4">Políticas e Ajuda</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#" class="hover:text-green-700 transition-colors"
+                  >Termos de Uso</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-700 transition-colors"
+                  >Política de Privacidade</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-700 transition-colors"
+                  >Entregas e Devoluções</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-700 transition-colors"
+                  >Perguntas Frequentes (FAQ)</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-4">Contato</h3>
+            <address class="not-italic space-y-3 text-sm">
+              <a
+                href="tel:+558330000000"
+                class="flex items-center hover:text-green-700 transition-colors"
+              >
+                <i class="fas fa-phone mr-3"></i>
+                <span>(83) 3000-0000</span>
+              </a>
+              <a
+                href="mailto:contato@flordocampo.com"
+                class="flex items-center hover:text-green-700 transition-colors"
+              >
+                <i class="fas fa-envelope mr-3"></i>
+                <span>contato@flordocampo.com</span>
+              </a>
+              <p class="flex items-start">
+                <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
+                <span>Av. Exemplo, 123<br />João Pessoa, PB, Brasil</span>
+              </p>
+            </address>
           </div>
         </div>
-      </div>
-      <div class="footer-map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.9711727941094!2d-34.8766422!3d-7.1356977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ace810852ae4f1%3A0xaf5445223401f2bb!2sIFPB%20-%20Campus%20Jo%C3%A3o%20Pessoa!5e0!3m2!1spt-BR!2sbr!4v1659642415261!5m2!1spt-BR!2sbr"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
+
+        <div
+          class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-t pt-8"
         >
-        </iframe>
-      </div>
-      <div class="footer-payments">
-        <h3>Aceitamos:</h3>
-        <div class="payment-icons">
-          <i class="fab fa-cc-visa" title="Visa"></i>
-          <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-          <i class="fab fa-cc-amex" title="American Express"></i>
-          <i class="fas fa-barcode" title="Boleto"></i>
-          <i class="fas fa-qrcode" title="PIX"></i>
+          <div>
+            <h3 class="font-semibold mb-4">Nossa Localização</h3>
+            <div class="h-64 w-full rounded-lg overflow-hidden shadow-md">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63345.72822941544!2d-34.8899855513672!3d-7.143210399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7acdd3802b66ac9%3A0x8b322a3654407981!2sJo%C3%A3o%20Pessoa%2C%20PB!5e0!3m2!1spt-BR!2sbr!4v1718131588820!5m2!1spt-BR!2sbr"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+            </div>
+          </div>
+          <div class="text-center lg:text-left">
+            <h3 class="font-semibold mb-4">Formas de Pagamento</h3>
+            <div
+              class="flex flex-wrap justify-center lg:justify-start gap-4 text-4xl"
+            >
+              <i class="fab fa-cc-visa" title="Visa"></i>
+              <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+              <i class="fab fa-cc-amex" title="American Express"></i>
+              <i class="fab fa-pix" title="PIX"></i>
+              <i class="fas fa-barcode" title="Boleto"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center border-t border-gray-200 pt-6">
+          <p class="text-sm">
+            &copy; 2025 Flor do Campo. Todos os direitos reservados.
+          </p>
         </div>
       </div>
     </footer>
-    <script src="/main.js" type="module"></script>
-    <script src="js/catalogo.js" type="module"></script>
-    <script src="src/LoginPage/home.js"></script>
-    <script src="src/LoginPage/verificaLogin.js"></script>
+
+    <script type="module" src="./js/main.js"></script>
   </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flor do Campo - Produtos Naturais</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-50">
+    <input type="checkbox" id="cart-toggle" class="hidden peer" />
+
+    <nav class="navbar bg-white shadow-md sticky top-0 z-30">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <h1 class="text-2xl font-bold text-gray-800">Flor do Campo 🌼</h1>
+                </a>
+            </div>
+            <div class="nav-right flex items-center space-x-6">
+                <div class="search-bar hidden md:flex">
+                    <input type="text" placeholder="Buscar produtos..." class="border rounded-l-md p-2" />
+                    <button class="bg-green-600 text-white px-4 rounded-r-md hover:bg-green-700"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="nav-icons flex items-center space-x-5">
+                    <label for="cart-toggle" id="btn-carrinho-icone" class="text-gray-600 hover:text-green-700 cursor-pointer transition-all">
+                        <i class="fas fa-shopping-cart text-2xl"></i>
+                    </label>
+                    <a href="login.html" class="text-gray-600 hover:text-green-700">
+                        <i class="fas fa-user text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="fixed top-0 right-[-450px] w-full max-w-sm h-full bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 peer-checked:translate-x-[-100%] sm:peer-checked:translate-x-[-450px]">
+        <div class="flex flex-col h-full">
+            <div class="flex items-center justify-between p-4 border-b border-gray-200">
+                <h2 class="text-xl font-semibold text-gray-800">Seu Carrinho</h2>
+                <label for="cart-toggle" class="cursor-pointer hover:text-gray-600 transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </label>
+            </div>
+            <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-4">
+                </div>
+            <div class="border-t border-gray-200 p-4 bg-gray-50">
+                <div class="flex justify-between mb-4">
+                    <span class="font-medium text-gray-800">Total:</span>
+                    <span class="font-bold text-gray-900">R$ <span id="cart-total">0.00</span></span>
+                </div>
+                <button class="w-full bg-green-600 text-white py-3 rounded-lg font-medium hover:bg-green-700 transition-colors">
+                    Finalizar Compra
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <label for="cart-toggle" class="fixed inset-0 bg-black bg-opacity-50 invisible opacity-0 peer-checked:visible peer-checked:opacity-100 transition-opacity duration-300 z-40"></label>
+
+    <section class="banner-boas-vindas">
+        <div class="banner-content text-center">
+            <h1 class="text-4xl md:text-5xl font-bold">Bem-vindo à Flor do Campo</h1>
+            <p class="mt-4 text-lg">Produtos naturais selecionados para seu bem-estar</p>
+            <a href="#catalogo" class="btn-explorar mt-8 inline-block bg-white text-green-800 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition-colors">
+                Explorar Produtos
+            </a>
+        </div>
+    </section>
+
+    <section class="ofertas py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Ofertas Especiais</h2>
+            <div class="produtos-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <div class="produto-card bg-white border rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <a href="ProductPage/produto.html" class="produto-link block">
+                        <img src="src/assets/img/cha-verde.webp" alt="Chá Verde Orgânico" class="w-full h-48 object-cover" />
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg">Chá Verde Orgânico</h3>
+                            <div class="mt-2">
+                                <span class="text-gray-500 line-through mr-2">R$ 29,90</span>
+                                <span class="text-green-600 font-bold text-xl">R$ 24,90</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions p-4 border-t">
+                        <button class="btn-carrinho w-full bg-green-600 text-white font-bold py-2 px-4 rounded hover:bg-green-700 transition-colors" data-id="1" data-nome="Chá Verde Orgânico" data-preco="24.90">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+
+                <div class="produto-card bg-white border rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <a href="ProductPage/produto.html" class="produto-link block">
+                        <img src="src/assets/img/frasco-de-oleo-essencial-de-eucalipto-com-folhas-em-fundo-branco_51524-19593.avif" alt="Óleo Essencial de Lavanda" class="w-full h-48 object-cover"/>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg">Óleo Essencial de Lavanda</h3>
+                             <div class="mt-2">
+                                <span class="text-gray-500 line-through mr-2">R$ 45,90</span>
+                                <span class="text-green-600 font-bold text-xl">R$ 39,90</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions p-4 border-t">
+                        <button class="btn-carrinho w-full bg-green-600 text-white font-bold py-2 px-4 rounded hover:bg-green-700 transition-colors" data-id="2" data-nome="Óleo Essencial de Lavanda" data-preco="39.90">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="produto-card bg-white border rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <a href="ProductPage/produto.html" class="produto-link block">
+                        <img src="src/assets/img/garana-po.jpeg" alt="Guaraná em Pó" class="w-full h-48 object-cover"/>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg">Guaraná em Pó</h3>
+                            <div class="mt-2">
+                                <span class="text-gray-500 line-through mr-2">R$ 32,90</span>
+                                <span class="text-green-600 font-bold text-xl">R$ 27,90</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions p-4 border-t">
+                        <button class="btn-carrinho w-full bg-green-600 text-white font-bold py-2 px-4 rounded hover:bg-green-700 transition-colors" data-id="3" data-nome="Guaraná em Pó" data-preco="27.90">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="produto-card bg-white border rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <a href="ProductPage/produto.html" class="produto-link block">
+                        <img src="src/assets/img/sabonete-argila.jpeg" alt="Sabonete de Argila" class="w-full h-48 object-cover"/>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg">Sabonete de Argila</h3>
+                            <div class="mt-2">
+                                <span class="text-gray-500 line-through mr-2">R$ 15,90</span>
+                                <span class="text-green-600 font-bold text-xl">R$ 12,90</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-actions p-4 border-t">
+                        <button class="btn-carrinho w-full bg-green-600 text-white font-bold py-2 px-4 rounded hover:bg-green-700 transition-colors" data-id="4" data-nome="Sabonete de Argila" data-preco="12.90">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogo" class="catalogo py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Nosso Catálogo</h2>
+            <div class="categorias flex justify-center flex-wrap gap-3 mb-10">
+                <button class="categoria-btn px-4 py-2 rounded-full font-semibold transition-colors" data-categoria="todos">Todos</button>
+                <button class="categoria-btn px-4 py-2 rounded-full font-semibold transition-colors" data-categoria="cha">Chás</button>
+                <button class="categoria-btn px-4 py-2 rounded-full font-semibold transition-colors" data-categoria="cosmetico">Cosméticos</button>
+                <button class="categoria-btn px-4 py-2 rounded-full font-semibold transition-colors" data-categoria="alimento">Alimentos</button>
+                <button class="categoria-btn px-4 py-2 rounded-full font-semibold transition-colors" data-categoria="suplemento">Suplementos</button>
+            </div>
+            <div id="produtos-container" class="produtos-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                </div>
+        </div>
+    </section>
+
+     <footer class="text-white">
+      <div class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="mb-6 md:mb-0">
+            <a href="index.html" class="flex items-center mb-4">
+              <h2 class="text-2xl font-bold">Flor do Campo 🌼</h2>
+            </a>
+            <p class="mb-6 text-sm">
+              Produtos naturais selecionados para uma vida mais saudável e
+              equilibrada.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                title="Instagram"
+                class="hover:text-green-700 transition-colors"
+              >
+                <i class="fab fa-instagram fa-lg"></i>
+              </a>
+              <a
+                href="#"
+                title="Facebook"
+                class="hover:text-green-700 transition-colors"
+              >
+                <i class="fab fa-facebook fa-lg"></i>
+              </a>
+              <a
+                href="#"
+                title="WhatsApp"
+                class="hover:text-green-700 transition-colors"
+              >
+                <i class="fab fa-whatsapp fa-lg"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-4">Sobre Nós</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#" class="hover:text-green-700 transition-colors"
+                  >Nossa História</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-700 transition-colors"
+                  >Missão e Valores</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-700 transition-colors"
+                  >Sustentabilidade</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-700 transition-colors"
+                  >Blog</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-4">Políticas e Ajuda</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#" class="hover:text-green-700 transition-colors"
+                  >Termos de Uso</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-700 transition-colors"
+                  >Política de Privacidade</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-700 transition-colors"
+                  >Entregas e Devoluções</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-700 transition-colors"
+                  >Perguntas Frequentes (FAQ)</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-4">Contato</h3>
+            <address class="not-italic space-y-3 text-sm">
+              <a
+                href="tel:+558330000000"
+                class="flex items-center hover:text-green-700 transition-colors"
+              >
+                <i class="fas fa-phone mr-3"></i>
+                <span>(83) 3000-0000</span>
+              </a>
+              <a
+                href="mailto:contato@flordocampo.com"
+                class="flex items-center hover:text-green-700 transition-colors"
+              >
+                <i class="fas fa-envelope mr-3"></i>
+                <span>contato@flordocampo.com</span>
+              </a>
+              <p class="flex items-start">
+                <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
+                <span>Av. Exemplo, 123<br />João Pessoa, PB, Brasil</span>
+              </p>
+            </address>
+          </div>
+        </div>
+
+        <div
+          class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-t pt-8"
+        >
+          <div>
+            <h3 class="font-semibold mb-4">Nossa Localização</h3>
+            <div class="h-64 w-full rounded-lg overflow-hidden shadow-md">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63345.72822941544!2d-34.8899855513672!3d-7.143210399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7acdd3802b66ac9%3A0x8b322a3654407981!2sJo%C3%A3o%20Pessoa%2C%20PB!5e0!3m2!1spt-BR!2sbr!4v1718131588820!5m2!1spt-BR!2sbr"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+            </div>
+          </div>
+          <div class="text-center lg:text-left">
+            <h3 class="font-semibold mb-4">Formas de Pagamento</h3>
+            <div
+              class="flex flex-wrap justify-center lg:justify-start gap-4 text-4xl"
+            >
+              <i class="fab fa-cc-visa" title="Visa"></i>
+              <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+              <i class="fab fa-cc-amex" title="American Express"></i>
+              <i class="fab fa-pix" title="PIX"></i>
+              <i class="fas fa-barcode" title="Boleto"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center border-t border-gray-200 pt-6">
+          <p class="text-sm">
+            &copy; 2025 Flor do Campo. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+    
+    <script type="module" src="./js/main.js"></script>
+</body>
 </html>

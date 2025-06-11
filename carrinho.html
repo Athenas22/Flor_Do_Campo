@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="styles/carrinho.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <h1>Flor do Campo 🌼</h1>
+        <label for="cart-toggle" class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">3</span>
+        </label>
+    </nav>
+
+    <input type="checkbox" id="cart-toggle" hidden>
+    
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Seu Carrinho</h2>
+            <label for="cart-toggle" class="close-cart">
+                <i class="fas fa-times"></i>
+            </label>
+        </div>
+
+        <div class="cart-items">
+            <div class="cart-item">
+                <img src="img/cha-verde.webp" alt="Chá Verde">
+                <div class="item-details">
+                    <h3>Chá Verde Orgânico</h3>
+                    <p class="price">R$ 24,90</p>
+                    <div class="item-quantity">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                </div>
+                <button class="remove-item">×</button>
+            </div>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span>R$ 24,90</span>
+            </div>
+            <button class="checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <button id="abrirCarrinho">🛒</button>
+
+  <div id="menuCarrinho" class="carrinho-fechado">
+    <button id="fecharCarrinho">✖</button>
+    <h2>Seu Carrinho</h2>
+    <ul id="itensCarrinho"></ul>
+  </div>
+
+  <script type="module" src="js/modules/carrinho.js"></script>
+</body>
+</html>

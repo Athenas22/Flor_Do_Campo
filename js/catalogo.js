@@ -1,7 +1,7 @@
 import { produtos, categorias } from './dados/produtos.js';
 
 // função filtro
-function mostrarProdutos(categoria = 'todos') {
+export function mostrarProdutos(categoria = 'todos') {
     // verifica existência
     const container = document.getElementById('produtos-container');
     if (!container) return;
