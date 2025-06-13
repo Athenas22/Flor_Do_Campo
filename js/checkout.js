@@ -17,25 +17,29 @@ function loadCartSummary() {
   if (!summaryContainer) return;
 
   if (carrinho.length === 0) {
-    summaryContainer.innerHTML = '<p style="text-align:center;color:#666">Carrinho vazio</p>';
+    summaryContainer.innerHTML = '<p class="text-center text-gray-500">Carrinho vazio</p>';
+    window.location.href = 'index.html'; // Redireciona se o carrinho estiver vazio
   } else {
     let total = 0;
     summaryContainer.innerHTML = carrinho.map(item => {
       const itemTotal = item.preco * item.quantidade;
       total += itemTotal;
       return `
-        <div class="cart-item">
-          <div class="item-image" style="background:#f8f8f8;display:flex;align-items:center;justify-content:center;color:#666">
-            <i class="fas fa-leaf"></i>
+        <div class="cart-item flex items-center justify-between p-4 border-b border-gray-200">
+          <div class="item-info flex-grow">
+            <h4 class="font-semibold text-gray-800">${item.nome}</h4>
+            <div class="flex justify-between items-center mt-1">
+              <span class="text-sm text-gray-600">Quantidade: ${item.quantidade}</span>
+              <span class="text-sm text-gray-600">R$ ${item.preco.toFixed(2)} / un.</span>
+            </div>
           </div>
-          <div class="item-details">
-            <div class="item-name">${item.nome}</div>
-            <div class="item-quantity">Qtd: ${item.quantidade}</div>
+          <div class="item-total ml-4 font-bold text-gray-900">
+            R$ ${itemTotal.toFixed(2)}
           </div>
-          <div class="item-price">R$ ${itemTotal.toFixed(2)}</div>
         </div>
       `;
     }).join('');
+
     document.getElementById('subtotal').textContent = `R$ ${total.toFixed(2)}`;
     document.getElementById('totalFinal').textContent = `R$ ${total.toFixed(2)}`;
     orderData.carrinho = carrinho;
@@ -78,21 +82,48 @@ function previousStep() {
 
 // Exibe só a seção ativa
 function showStep(step) {
-  document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
-  document.getElementById(`step${step}`)?.classList.add('active');
+  const sections = document.querySelectorAll('.form-section');
+  sections.forEach(s => {
+    s.classList.remove('active');
+    s.style.display = 'none';
+  });
+  
+  const currentSection = document.getElementById(`step${step}`);
+  if (currentSection) {
+    currentSection.classList.add('active');
+    currentSection.style.display = 'block';
+    
+    // Scroll suave para o topo da seção
+    currentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 // Atualiza indicador de progresso
 function updateStepIndicator() {
   const steps = Array.from(document.querySelectorAll('.step'));
   const progressLine = document.getElementById('progressLine');
+  
   steps.forEach((el, i) => {
     el.classList.remove('active', 'completed');
-    if (i + 1 < currentStep) el.classList.add('completed');
-    if (i + 1 === currentStep) el.classList.add('active');
+    if (i + 1 < currentStep) {
+      el.classList.add('completed');
+    }
+    if (i + 1 === currentStep) {
+      el.classList.add('active');
+    }
   });
-  const pct = ((currentStep - 1) / (steps.length - 1)) * 100;
-  if (progressLine) progressLine.style.width = `calc(${pct}% - 60px)`;
+
+  // Atualiza a linha de progresso
+  if (progressLine) {
+    const progress = ((currentStep - 1) / (steps.length - 1)) * 100;
+    progressLine.style.width = `${progress}%`;
+  }
+
+  // Verifica se deve mostrar o botão voltar
+  const backButton = document.querySelector('.btn-secondary');
+  if (backButton) {
+    backButton.style.display = currentStep === 1 ? 'none' : 'block';
+  }
 }
 
 // Valida a etapa atual
