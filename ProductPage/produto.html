@@ -1,48 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
+<html lang="pt-br" class="scroll-smooth">
+<head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chá Verde Orgânico - Flor do Campo</title>
-    <link
-      rel="stylesheet"
-      href="../style.css"
-    />
-    <link
-      rel="stylesheet"
-      href="produto.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="logo">
-        <a href="../index.html" class="logo-link">
-          <h1>Flor do Campo 🌼</h1>
-        </a>
-      </div>
-      <div class="nav-right">
-        <div class="search-bar">
-          <input
-            type="text"
-            placeholder="Buscar produtos..."
-          />
-          <button><i class="fas fa-search"></i></button>
+    <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="produto.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-50">
+    <input type="checkbox" id="cart-toggle" class="hidden peer" />
+
+    <nav class="navbar bg-white shadow-md sticky top-0 z-30">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <div class="logo">
+                <a href="../index.html" class="logo-link">
+                    <h1 class="text-2xl font-bold text-gray-800">Flor do Campo 🌼</h1>
+                </a>
+            </div>
+            <div class="nav-right flex items-center space-x-6">
+                <div class="search-bar hidden md:flex">
+                    <input type="text" placeholder="Buscar produtos..." class="border rounded-l-md p-2" />
+                    <button class="bg-green-600 text-white px-4 rounded-r-md hover:bg-green-700"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="nav-icons flex items-center space-x-5">
+                    <label for="cart-toggle" id="btn-carrinho-icone" class="text-gray-600 hover:text-green-700 cursor-pointer transition-all">
+                        <i class="fas fa-shopping-cart text-2xl"></i>
+                    </label>
+                    <a href="../login.html" class="text-gray-600 hover:text-green-700">
+                        <i class="fas fa-user text-2xl"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="nav-icons">
-          <a href="#"><i class="fas fa-shopping-cart"></i></a>
-          <a href="#"><i class="fas fa-user"></i></a>
-        </div>
-      </div>
     </nav>
 
     <main class="produto-pagina">
@@ -126,69 +117,71 @@
       </div>
     </main>
 
-    <footer>
-      <div class="footer-content">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <h2>🌼 Flor do Campo</h2>
-            <p>Produtos naturais para uma vida mais saudável</p>
-          </div>
+    <footer class="text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="mb-6 md:mb-0">
+                    <a href="../index.html" class="flex items-center mb-4">
+                        <h2 class="text-2xl font-bold">Flor do Campo 🌼</h2>
+                    </a>
+                    <p class="mb-6 text-sm">
+                        Produtos naturais selecionados para uma vida mais saudável e equilibrada.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" title="Instagram" class="hover:text-green-700 transition-colors">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                        <a href="#" title="Facebook" class="hover:text-green-700 transition-colors">
+                            <i class="fab fa-facebook fa-lg"></i>
+                        </a>
+                        <a href="#" title="WhatsApp" class="hover:text-green-700 transition-colors">
+                            <i class="fab fa-whatsapp fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Sobre Nós</h3>
+                    <ul class="text-sm space-y-2">
+                        <li><a href="#" class="hover:text-green-700 transition-colors">Nossa História</a></li>
+                        <li><a href="#" class="hover:text-green-700 transition-colors">Missão e Valores</a></li>
+                        <li><a href="#" class="hover:text-green-700 transition-colors">Sustentabilidade</a></li>
+                        <li><a href="#" class="hover:text-green-700 transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Políticas</h3>
+                    <ul class="text-sm space-y-2">
+                        <li><a href="#" class="hover:text-green-700 transition-colors">Termos de Uso</a></li>
+                        <li><a href="#" class="hover:text-green-700 transition-colors">Privacidade</a></li>
+                        <li><a href="#" class="hover:text-green-700 transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-green-700 transition-colors">Entregas</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contato</h3>
+                    <div class="flex flex-col space-y-2">
+                        <a href="tel:+558330000000" class="flex items-center text-sm hover:text-green-700 transition-colors">
+                            <i class="fas fa-phone mr-2"></i>
+                            (83) 3000-0000
+                        </a>
+                        <a href="mailto:contato@flordocampo.com" class="flex items-center text-sm hover:text-green-700 transition-colors">
+                            <i class="fas fa-envelope mr-2"></i>
+                            contato@flordocampo.com
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="footer-links">
-          <h3>Sobre Nós</h3>
-          <ul>
-            <li><a href="#">Nossa História</a></li>
-            <li><a href="#">Missão e Valores</a></li>
-            <li><a href="#">Sustentabilidade</a></li>
-            <li><a href="#">Blog</a></li>
-          </ul>
+        <div class="bg-green-600 py-4">
+            <div class="container mx-auto text-center">
+                <p class="text-sm">
+                    © 2025 Flor do Campo. Todos os direitos reservados.
+                </p>
+            </div>
         </div>
-        <div class="footer-info">
-          <h3>Políticas</h3>
-          <ul>
-            <li><a href="#">Termos de Uso</a></li>
-            <li><a href="#">Privacidade</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Entregas</a></li>
-          </ul>
-        </div>
-        <div class="footer-social">
-          <h3>Contato</h3>
-          <div class="footer-contato">
-            <a href="tel:+558330000000">
-              <i class="fas fa-phone"></i>
-              (83) 3000-0000
-            </a>
-            <a href="mailto:contato@flordocampo.com">
-              <i class="fas fa-envelope"></i>
-              contato@flordocampo.com
-            </a>
-          </div>
-          <div class="social-icons">
-            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.9711727941094!2d-34.8766422!3d-7.1356977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ace810852ae4f1%3A0xaf5445223401f2bb!2sIFPB%20-%20Campus%20Jo%C3%A3o%20Pessoa!5e0!3m2!1spt-BR!2sbr!4v1659642415261!5m2!1spt-BR!2sbr"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-        ></iframe>
-      </div>
-      <div class="footer-payments">
-        <h3>Aceitamos:</h3>
-        <div class="payment-icons">
-          <i class="fab fa-cc-visa" title="Visa"></i>
-          <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-          <i class="fab fa-cc-amex" title="American Express"></i>
-          <i class="fas fa-barcode" title="Boleto"></i>
-          <i class="fas fa-qrcode" title="PIX"></i>
-        </div>
-      </div>
     </footer>
 
     <script>

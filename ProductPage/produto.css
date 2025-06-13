@@ -205,6 +205,43 @@ body, p, li, a, button, input, label, span, ul, ol, .btn-carrinho, .btn-detalhes
   color: #666;
 }
 
+/* Footer styles */
+footer {
+    background-color: #1a1a1a;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+/* Navigation styles */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-right .search-bar input {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem 0 0 0.375rem;
+    padding: 0.5rem;
+}
+
+.nav-right .search-bar button {
+    background-color: #16a34a;
+    color: white;
+    padding: 0 1rem;
+    border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.nav-right .search-bar button:hover {
+    background-color: #15803d;
+}
+
 @media (max-width: 768px) {
   .produto-container {
     grid-template-columns: 1fr;

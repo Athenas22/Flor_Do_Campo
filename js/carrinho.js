@@ -149,6 +149,17 @@ export function inicializarCarrinho() {
         }
     });
 
+    // Adicionar listener para o botão de checkout
+    document.querySelectorAll('.checkout-btn').forEach(btn => {
+        btn.addEventListener('click', (event) => {
+            const carrinho = obterCarrinho();
+            if (carrinho.length === 0) {
+                event.preventDefault();
+                alert('Seu carrinho está vazio!');
+            }
+        });
+    });
+
     // Atualiza a UI quando a página carrega
     atualizarCarrinhoUI();
 }
