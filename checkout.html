@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Flor do Campo</title>
+  <link rel="stylesheet" href="style/checkout.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</head>
+<body>
+
+  <!-- Loading overlay -->
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html" class="logo-link">
+        <h1>Flor do Campo 🌼</h1>
+      </a>
+    </div>
+    <div class="nav-right">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar produtos..." />
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      <div class="nav-icons">
+        <a href="index.html" class="btn btn-secondary">
+          <i class="fas fa-arrow-left"></i> Voltar à Loja
+        </a>
+        <a href="login.html"><i class="fas fa-user"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="checkout-container">
+    <!-- Formulário de Checkout -->
+    <div class="checkout-steps">
+      <!-- Indicador de Etapas -->
+      <div class="step-indicator">
+        <div class="progress-line" id="progressLine"></div>
+        <div class="step active" data-step="1">
+          <div class="step-number">1</div>
+          <div class="step-title">Endereço</div>
+        </div>
+        <div class="step" data-step="2">
+          <div class="step-number">2</div>
+          <div class="step-title">Pagamento</div>
+        </div>
+        <div class="step" data-step="3">
+          <div class="step-number">3</div>
+          <div class="step-title">Confirmação</div>
+        </div>
+      </div>
+
+      <!-- Etapa 1: Endereço -->
+      <div class="form-section active" id="step1">
+        <h2>Informações de Entrega</h2>
+        <form id="addressForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome">Nome Completo *</label>
+              <input type="text" id="nome" name="nome" required>
+              <div class="error-message" id="nomeError"></div>
+            </div>
+            <div class="form-group">
+              <label for="telefone">Telefone *</label>
+              <input type="tel" id="telefone" name="telefone" required>
+              <div class="error-message" id="telefoneError"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" required>
+            <div class="error-message" id="emailError"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cep">CEP *</label>
+              <input type="text" id="cep" name="cep" required maxlength="9">
+              <div class="error-message" id="cepError"></div>
+            </div>
+            <div class="form-group">
+              <label for="numero">Número *</label>
+              <input type="text" id="numero" name="numero" required>
+              <div class="error-message" id="numeroError"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="endereco">Endereço *</label>
+            <input type="text" id="endereco" name="endereco" required>
+            <div class="error-message" id="enderecoError"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bairro">Bairro *</label>
+              <input type="text" id="bairro" name="bairro" required>
+              <div class="error-message" id="bairroError"></div>
+            </div>
+            <div class="form-group">
+              <label for="cidade">Cidade *</label>
+              <input type="text" id="cidade" name="cidade" required>
+              <div class="error-message" id="cidadeError"></div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="estado">Estado *</label>
+              <select id="estado" name="estado" required>
+                <option value="">Selecione</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+              </select>
+              <div class="error-message" id="estadoError"></div>
+            </div>
+            <div class="form-group">
+              <label for="complemento">Complemento</label>
+              <input type="text" id="complemento" name="complemento">
+            </div>
+          </div>
+        </form>
+        <div class="btn-group">
+          <div></div>
+          <button type="button" class="btn btn-primary" onclick="nextStep()">
+            Continuar <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Etapa 2: Pagamento -->
+      <div class="form-section" id="step2">
+        <h2>Forma de Pagamento</h2>
+        <div class="payment-methods">
+          <div class="payment-option" data-payment="pix">
+            <div class="payment-header">
+              <i class="fas fa-qrcode payment-icon"></i>
+              <div>
+                <h3>PIX</h3>
+                <p>Pagamento instantâneo</p>
+              </div>
+            </div>
+            <div class="payment-details">
+              <p>Você receberá um QR Code para realizar o pagamento via PIX.</p>
+            </div>
+          </div>
+          <div class="payment-option" data-payment="boleto">
+            <div class="payment-header">
+              <i class="fas fa-barcode payment-icon"></i>
+              <div>
+                <h3>Boleto Bancário</h3>
+                <p>Vencimento em 3 dias úteis</p>
+              </div>
+            </div>
+            <div class="payment-details">
+              <p>Você receberá um boleto para pagamento em qualquer banco ou casa lotérica.</p>
+            </div>
+          </div>
+          <div class="payment-option" data-payment="cartao">
+            <div class="payment-header">
+              <i class="fas fa-credit-card payment-icon"></i>
+              <div>
+                <h3>Cartão de Crédito</h3>
+                <p>À vista ou parcelado</p>
+              </div>
+            </div>
+            <div class="payment-details">
+              <div class="form-group">
+                <label for="numeroCartao">Número do Cartão</label>
+                <input type="text" id="numeroCartao" placeholder="0000 0000 0000 0000" maxlength="19">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="validadeCartao">Validade</label>
+                  <input type="text" id="validadeCartao" placeholder="MM/AA" maxlength="5">
+                </div>
+                <div class="form-group">
+                  <label for="cvvCartao">CVV</label>
+                  <input type="text" id="cvvCartao" placeholder="000" maxlength="4">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="nomeCartao">Nome no Cartão</label>
+                <input type="text" id="nomeCartao" placeholder="Como está no cartão">
+              </div>
+              <div class="form-group">
+                <label for="parcelasCartao">Parcelamento</label>
+                <select id="parcelasCartao">
+                  <option value="1">À vista</option>
+                  <option value="2">2x sem juros</option>
+                  <option value="3">3x sem juros</option>
+                  <option value="4">4x sem juros</option>
+                  <option value="5">5x sem juros</option>
+                  <option value="6">6x sem juros</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary" onclick="previousStep()">
+            <i class="fas fa-arrow-left"></i> Voltar
+          </button>
+          <button type="button" class="btn btn-primary" onclick="nextStep()">
+            Continuar <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Etapa 3: Confirmação -->
+      <div class="form-section" id="step3">
+        <h2>Confirmação do Pedido</h2>
+        <div id="confirmationDetails"></div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary" onclick="previousStep()">
+            <i class="fas fa-arrow-left"></i> Voltar
+          </button>
+          <button type="button" class="btn btn-primary" onclick="finalizarPedido()">
+            <i class="fas fa-check"></i> Finalizar Pedido
+          </button>
+        </div>
+      </div>
+
+      <!-- Etapa 4: Sucesso -->
+      <div class="form-section" id="step4">
+        <div class="success-message">
+          <i class="fas fa-check-circle success-icon"></i>
+          <h2>Pedido Realizado com Sucesso!</h2>
+          <div class="order-number">
+            Número do Pedido: <span id="orderNumber"></span>
+          </div>
+          <p>Você receberá um e-mail com os detalhes do seu pedido e instruções para pagamento.</p>
+          <div style="margin-top:2rem;">
+            <a href="index.html" class="btn btn-primary">
+              <i class="fas fa-home"></i> Voltar à Loja
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resumo do Pedido -->
+    <div class="order-summary">
+      <h3 class="summary-title">Resumo do Pedido</h3>
+      <div id="summaryItems"></div>
+      <div class="summary-totals">
+        <div class="total-line">
+          <span>Subtotal:</span>
+          <span id="subtotal">R$ 0,00</span>
+        </div>
+        <div class="total-line">
+          <span>Frete:</span>
+          <span id="frete">Grátis</span>
+        </div>
+        <div class="total-line final">
+          <span>Total:</span>
+          <span id="totalFinal">R$ 0,00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="scripts/checkout.js"></script>
+</body>
+</html>
