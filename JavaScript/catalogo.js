@@ -31,11 +31,20 @@ export function mostrarProdutos(categoria = 'todos') {
     container.innerHTML = produtosFiltrados.length 
         ? produtosHTML 
         : '<p class="no-products">Nenhum produto encontrado nesta categoria.</p>';
-    
-    // vai pra produto.html
+      // vai pra produto.html
     document.querySelectorAll('.btn-ver-produto').forEach(btn => {
         btn.addEventListener('click', () => {
-            window.location.href = `ProductPage/produto.html?id=${btn.getAttribute('data-id')}`;
+            // Verifica se estamos na página principal ou em outra página
+            const isHomepage = window.location.pathname.endsWith('index.html') || 
+                              window.location.pathname === '/' || 
+                              window.location.pathname.endsWith('/');
+            
+            // Define o caminho correto dependendo da localização atual
+            const path = isHomepage ? 
+                `./ProductPage/produto.html?id=${btn.getAttribute('data-id')}` : 
+                `../ProductPage/produto.html?id=${btn.getAttribute('data-id')}`;
+            
+            window.location.href = path;
         });
     });
 }

@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho de Compras</title>
-    <link rel="stylesheet" href="style/carrinho.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Carrinho de Compras</title><link rel="stylesheet" href="./carrinho.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-    <nav>
+<body>    <nav>
         <h1>Flor do Campo 🌼</h1>
-        <label for="cart-toggle" class="cart-icon">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count">3</span>
-        </label>
+        <div class="nav-icons">
+            <label for="cart-toggle" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">3</span>
+            </label>
+            <a href="../LoginPage/login.html" class="user-icon">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
     </nav>
 
     <input type="checkbox" id="cart-toggle" hidden>
@@ -47,7 +53,7 @@
                 <span>Total:</span>
                 <span>R$ 24,90</span>
             </div>
-            <a href="./checkout.html" class="checkout-btn">Finalizar Compra</a>
+            <a href="../CheckoutPage/checkout.html" class="checkout-btn">Finalizar Compra</a>
         </div>
     </div>
 
@@ -59,8 +65,6 @@
     <button id="fecharCarrinho">✖</button>
     <h2>Seu Carrinho</h2>
     <ul id="itensCarrinho"></ul>
-  </div>
-
-  <script type="module" src="js/carrinho.js"></script>
+  </div>  <script type="module" src="../js/carrinho.js"></script>
 </body>
 </html>

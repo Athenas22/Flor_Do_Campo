@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Flor do Campo</title>
-    <link rel="stylesheet" href="./style/style.css">
-    <link rel="stylesheet" href="./src/LoginPage/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Login - Flor do Campo</title><link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <h1>Flor do Campo 🌼</h1>
+    <nav class="navbar">        <div class="logo">
+            <a href="../index.html">
+                <h1>Flor do Campo 🌼</h1>
+            </a>
         </div>
         <div class="nav-right">
             <div class="search-bar">
                 <input type="text" placeholder="Buscar produtos...">
                 <button><i class="fas fa-search"></i></button>
-            </div>
-            <div class="nav-icons">
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                <a href="#" class="active"><i class="fas fa-user"></i></a>
+            </div>            <div class="nav-icons">
+                <a href="../CartPage/carrinho.html"><i class="fas fa-shopping-cart"></i></a>
+                <a href="./login.html" class="active"><i class="fas fa-user"></i></a>
             </div>
         </div>
     </nav>
@@ -49,7 +51,6 @@
     </main>
     <footer>
         <p>&copy; 2023 Flor do Campo. Todos os direitos reservados.</p>
-    </footer>
-    <script src="src/LoginPage/login.js"></script>
+    </footer>    <script type="module" src="../js/login.js"></script>
 </body>
 </html>

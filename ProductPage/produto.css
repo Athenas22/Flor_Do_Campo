@@ -12,12 +12,13 @@
 
 /* Fontes para títulos e subtítulos */
 h1, h2, h3 {
-  font-family: 'Cinzel', serif;
+  font-family: 'Amatic SC', cursive;
+  font-weight: 700;
 }
 
 /* Fonte para textos comuns */
 body, p, li, a, button, input, label, span, ul, ol, .btn-carrinho, .btn-detalhes {
-  font-family: 'Lora', serif;
+  font-family: 'Libre Baskerville', serif;
 }
 
 .produto-pagina {

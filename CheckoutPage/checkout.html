@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkout - Flor do Campo</title>
-    <link rel="stylesheet" href="style/style.css" />
-    <link rel="stylesheet" href="style/checkout.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Checkout - Flor do Campo</title><link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./checkout.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
@@ -18,8 +20,7 @@
 
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo">
-      <a href="index.html" class="logo-link">
+    <div class="logo">      <a href="../index.html" class="logo-link">
         <h1>Flor do Campo 🌼</h1>
       </a>
     </div>
@@ -28,11 +29,10 @@
         <input type="text" placeholder="Buscar produtos..." />
         <button><i class="fas fa-search"></i></button>
       </div>
-      <div class="nav-icons">
-        <a href="index.html" class="btn bg-white text-gray-700 hover:bg-gray-100 transition-colors border border-gray-300 rounded-lg px-4 py-2 flex items-center gap-2">
+      <div class="nav-icons">        <a href="../index.html" class="btn bg-white text-gray-700 hover:bg-gray-100 transition-colors border border-gray-300 rounded-lg px-4 py-2 flex items-center gap-2">
           <i class="fas fa-arrow-left"></i> Voltar à Loja
         </a>
-        <a href="login.html"><i class="fas fa-user"></i></a>
+        <a href="../LoginPage/login.html"><i class="fas fa-user"></i></a>
       </div>
     </div>
   </nav>
@@ -257,9 +257,8 @@
           <div class="order-number">
             Número do Pedido: <span id="orderNumber"></span>
           </div>
-          <p>Você receberá um e-mail com os detalhes do seu pedido e instruções para pagamento.</p>
-          <div style="margin-top:2rem;">
-            <a href="index.html" class="btn btn-primary">
+          <p>Você receberá um e-mail com os detalhes do seu pedido e instruções para pagamento.</p>          <div style="margin-top:2rem;">
+            <a href="../index.html" class="btn btn-primary return-home" id="backToHomeBtn">
               <i class="fas fa-home"></i> Voltar à Loja
             </a>
           </div>
@@ -285,9 +284,6 @@
           <span id="totalFinal">R$ 0,00</span>
         </div>
       </div>
-    </div>
-  </div>
-
-  <script type="module" src="scripts/checkout.js"></script>
+    </div>  </div>  <script type="module" src="../JavaScript/checkout.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Lora', serif;
+  font-family: 'Libre Baskerville', serif;
 }
 
 :root {
@@ -106,6 +106,42 @@ body {
   background: #16a34a;
   border-color: #16a34a;
   color: white;
+}
+
+/* Tipografia para checkout */
+h1, h2, h3, h4 {
+  font-family: 'Amatic SC', cursive;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: 0.05em;
+}
+
+h2 {
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+
+h3 {
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.step-title {
+  font-family: 'Amatic SC', cursive;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+/* Ajustes específicos */
+.summary-title {
+  font-family: 'Amatic SC', cursive;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 /* Seções de formulário */

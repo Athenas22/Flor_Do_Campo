@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Libre Baskerville', serif;
     overflow-x: hidden;
 }
 
@@ -16,6 +16,23 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.user-icon {
+    font-size: 1.5rem;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.user-icon:hover {
+    color: #4CAF50;
 }
 
 #menuCarrinho {
@@ -171,6 +188,27 @@ nav {
 #cart-toggle:checked ~ .overlay {
     opacity: 1;
     visibility: visible;
+}
+
+/* Tipografia para carrinho */
+h1, h2, h3, h4 {
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.8rem;
+    letter-spacing: 0.05em;
+}
+
+h2 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 @media (max-width: 480px) {
