@@ -2,49 +2,14 @@
 
 > E-commerce de produtos naturais e orgânicos
 
-<div align="center">
-  <svg width="100%" height="4" viewBox="0 0 100 4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <defs>
-      <linearGradient id="purple-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop id="stop1" offset="0%" stop-color="#a259ff">
-          <animate attributeName="offset" values="0;1" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop2" offset="50%" stop-color="#6a11cb">
-          <animate attributeName="offset" values="0.5;1.5" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop3" offset="100%" stop-color="#a259ff">
-          <animate attributeName="offset" values="1;2" dur="2s" repeatCount="indefinite"/>
-        </stop>
-      </linearGradient>
-    </defs>
-    <rect x="0" y="0" width="100" height="4" fill="url(#purple-gradient)" />
-  </svg>
-</div>
+<img src="purple-divider.svg" width="100%" height="4">
 
 ## Preview do Projeto
 
-<p align="center">
-  <img src="./src/assets/img/preview.png" alt="Preview da Página Inicial" width="800px">
+<p align="center">  <img src="./src/assets/img/preview.png" alt="Preview da Página Inicial" width="800px">
 </p>
 
-<div align="center">
-  <svg width="100%" height="4" viewBox="0 0 100 4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <defs>
-      <linearGradient id="purple-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop id="stop1" offset="0%" stop-color="#a259ff">
-          <animate attributeName="offset" values="0;1" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop2" offset="50%" stop-color="#6a11cb">
-          <animate attributeName="offset" values="0.5;1.5" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop3" offset="100%" stop-color="#a259ff">
-          <animate attributeName="offset" values="1;2" dur="2s" repeatCount="indefinite"/>
-        </stop>
-      </linearGradient>
-    </defs>
-    <rect x="0" y="0" width="100" height="4" fill="url(#purple-gradient)" />
-  </svg>
-</div>
+<img src="purple-divider.svg" width="100%" height="4">
 
 ## 👥 Participantes do Projeto
 
@@ -52,24 +17,7 @@
 - Maria Laura
 - Lucas Moura
 
-<div align="center">
-  <svg width="100%" height="4" viewBox="0 0 100 4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <defs>
-      <linearGradient id="purple-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop id="stop1" offset="0%" stop-color="#a259ff">
-          <animate attributeName="offset" values="0;1" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop2" offset="50%" stop-color="#6a11cb">
-          <animate attributeName="offset" values="0.5;1.5" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop3" offset="100%" stop-color="#a259ff">
-          <animate attributeName="offset" values="1;2" dur="2s" repeatCount="indefinite"/>
-        </stop>
-      </linearGradient>
-    </defs>
-    <rect x="0" y="0" width="100" height="4" fill="url(#purple-gradient)" />
-  </svg>
-</div>
+<img src="purple-divider.svg" width="100%" height="6">
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -81,24 +29,7 @@
 - **Font Awesome**: Biblioteca de ícones
 - **Google Fonts**: Fontes personalizadas (Amatic SC e Libre Baskerville)
 
-<div align="center">
-  <svg width="100%" height="4" viewBox="0 0 100 4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <defs>
-      <linearGradient id="purple-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop id="stop1" offset="0%" stop-color="#a259ff">
-          <animate attributeName="offset" values="0;1" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop2" offset="50%" stop-color="#6a11cb">
-          <animate attributeName="offset" values="0.5;1.5" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop3" offset="100%" stop-color="#a259ff">
-          <animate attributeName="offset" values="1;2" dur="2s" repeatCount="indefinite"/>
-        </stop>
-      </linearGradient>
-    </defs>
-    <rect x="0" y="0" width="100" height="4" fill="url(#purple-gradient)" />
-  </svg>
-</div>
+<img src="purple-divider.svg" width="100%" height="6">
 
 ## 📦 Estrutura do Projeto
 
@@ -134,24 +65,7 @@ FlorDoCampo/
         └── img/               # Imagens de produtos
 ```
 
-<div align="center">
-  <svg width="100%" height="4" viewBox="0 0 100 4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <defs>
-      <linearGradient id="purple-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop id="stop1" offset="0%" stop-color="#a259ff">
-          <animate attributeName="offset" values="0;1" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop2" offset="50%" stop-color="#6a11cb">
-          <animate attributeName="offset" values="0.5;1.5" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop3" offset="100%" stop-color="#a259ff">
-          <animate attributeName="offset" values="1;2" dur="2s" repeatCount="indefinite"/>
-        </stop>
-      </linearGradient>
-    </defs>
-    <rect x="0" y="0" width="100" height="4" fill="url(#purple-gradient)" />
-  </svg>
-</div>
+<img src="purple-divider.svg" width="100%" height="6">
 
 ## 🛠️ Como Funciona o Vite
 
@@ -194,24 +108,7 @@ export default defineConfig({
 })
 ```
 
-<div align="center">
-  <svg width="100%" height="4" viewBox="0 0 100 4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <defs>
-      <linearGradient id="purple-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop id="stop1" offset="0%" stop-color="#a259ff">
-          <animate attributeName="offset" values="0;1" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop2" offset="50%" stop-color="#6a11cb">
-          <animate attributeName="offset" values="0.5;1.5" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop3" offset="100%" stop-color="#a259ff">
-          <animate attributeName="offset" values="1;2" dur="2s" repeatCount="indefinite"/>
-        </stop>
-      </linearGradient>
-    </defs>
-    <rect x="0" y="0" width="100" height="4" fill="url(#purple-gradient)" />
-  </svg>
-</div>
+<img src="purple-divider.svg" width="100%" height="6">
 
 ## 🔄 Fluxo de Navegação
 
@@ -226,24 +123,7 @@ O site implementa um fluxo de navegação intuitivo:
    - Etapa 3: Confirmação
    - Etapa 4: Pedido finalizado
 
-<div align="center">
-  <svg width="100%" height="4" viewBox="0 0 100 4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <defs>
-      <linearGradient id="purple-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop id="stop1" offset="0%" stop-color="#a259ff">
-          <animate attributeName="offset" values="0;1" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop2" offset="50%" stop-color="#6a11cb">
-          <animate attributeName="offset" values="0.5;1.5" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop3" offset="100%" stop-color="#a259ff">
-          <animate attributeName="offset" values="1;2" dur="2s" repeatCount="indefinite"/>
-        </stop>
-      </linearGradient>
-    </defs>
-    <rect x="0" y="0" width="100" height="4" fill="url(#purple-gradient)" />
-  </svg>
-</div>
+<img src="purple-divider.svg" width="100%" height="6">
 
 ## 🧠 Funcionalidades Principais
 
@@ -255,24 +135,7 @@ O site implementa um fluxo de navegação intuitivo:
 - **LocalStorage**: Persistência do carrinho entre sessões
 - **Design Responsivo**: Layout adaptável para diferentes dispositivos
 
-<div align="center">
-  <svg width="100%" height="4" viewBox="0 0 100 4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <defs>
-      <linearGradient id="purple-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop id="stop1" offset="0%" stop-color="#a259ff">
-          <animate attributeName="offset" values="0;1" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop2" offset="50%" stop-color="#6a11cb">
-          <animate attributeName="offset" values="0.5;1.5" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop3" offset="100%" stop-color="#a259ff">
-          <animate attributeName="offset" values="1;2" dur="2s" repeatCount="indefinite"/>
-        </stop>
-      </linearGradient>
-    </defs>
-    <rect x="0" y="0" width="100" height="4" fill="url(#purple-gradient)" />
-  </svg>
-</div>
+<img src="purple-divider.svg" width="100%" height="6">
 
 ## ⚠️ Problemas Conhecidos
 
@@ -280,24 +143,7 @@ O site implementa um fluxo de navegação intuitivo:
 
 2. **Itens dinâmicos no carrinho**: Ao adicionar itens da lista dinâmica ao carrinho, ocorre redirecionamento para uma página diferente.
 
-<div align="center">
-  <svg width="100%" height="4" viewBox="0 0 100 4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <defs>
-      <linearGradient id="purple-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop id="stop1" offset="0%" stop-color="#a259ff">
-          <animate attributeName="offset" values="0;1" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop2" offset="50%" stop-color="#6a11cb">
-          <animate attributeName="offset" values="0.5;1.5" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop3" offset="100%" stop-color="#a259ff">
-          <animate attributeName="offset" values="1;2" dur="2s" repeatCount="indefinite"/>
-        </stop>
-      </linearGradient>
-    </defs>
-    <rect x="0" y="0" width="100" height="4" fill="url(#purple-gradient)" />
-  </svg>
-</div>
+<img src="purple-divider.svg" width="100%" height="6">
 
 ## 🚀 Como Executar o Projeto
 
@@ -318,27 +164,8 @@ O site implementa um fluxo de navegação intuitivo:
    ```
    npm run preview
    ```
+<img src="purple-divider.svg" width="100%" height="6">
 
 <div align="center">
-  <svg width="100%" height="4" viewBox="0 0 100 4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <defs>
-      <linearGradient id="purple-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop id="stop1" offset="0%" stop-color="#a259ff">
-          <animate attributeName="offset" values="0;1" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop2" offset="50%" stop-color="#6a11cb">
-          <animate attributeName="offset" values="0.5;1.5" dur="2s" repeatCount="indefinite"/>
-        </stop>
-        <stop id="stop3" offset="100%" stop-color="#a259ff">
-          <animate attributeName="offset" values="1;2" dur="2s" repeatCount="indefinite"/>
-        </stop>
-      </linearGradient>
-    </defs>
-    <rect x="0" y="0" width="100" height="4" fill="url(#purple-gradient)" />
-  </svg>
-</div>
-
-
-<div align="center">
-  <p>Desenvolvido com 💚 pelo Grupo</p>
+  <p>Desenvolvido com 💚 pelo grupo</p>
 </div>
