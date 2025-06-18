@@ -167,5 +167,5 @@ O site implementa um fluxo de navegação intuitivo:
 <img src="purple-divider.svg" width="100%" height="6">
 
 <div align="center">
-  <p>Desenvolvido com 💚 pelo grupo</p>
+  <p>Desenvolvido com 💜 pelo grupo</p>
 </div>
