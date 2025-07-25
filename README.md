@@ -1,103 +1,193 @@
-# Flor do Campo 🌼
+# Flor do Campo 🌼 - React Edition
 
-> E-commerce de produtos naturais e orgânicos
+> E-commerce moderno de produtos naturais e orgânicos desenvolvido em React + TypeScript
 
-<img src="purple-divider.svg" width="100%" height="4">
+<img src="purple-divider.svg" width="100%" height="4" alt="Purple decorative divider with animation">
 
 ## Preview do Projeto
 
-<p align="center">  <img src="./src/assets/img/preview.png" alt="Preview da Página Inicial" width="800px">
+<p align="center">
+  <img src="./src/assets/img/preview.png" alt="Preview da Página Inicial" width="800px">
 </p>
 
-<img src="purple-divider.svg" width="100%" height="4">
+<img src="purple-divider.svg" width="100%" height="4" alt="Purple decorative divider with animation">
 
 ## 👥 Participantes do Projeto
 
 - Vinícius Ares Monteiro de Lima
-- Maria Laura
+- Maria Laura  
 - Lucas Moura
 
-<img src="purple-divider.svg" width="100%" height="6">
+<img src="purple-divider.svg" width="100%" height="4" alt="Purple decorative divider with animation">
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Vite**: Build tool e servidor de desenvolvimento
+- **React 19**: Biblioteca JavaScript para interfaces de usuário
+- **TypeScript**: Superset do JavaScript com tipagem estática
+- **Vite**: Build tool e servidor de desenvolvimento ultrarrápido
 - **TailwindCSS**: Framework CSS utilitário
-- **JavaScript ES6+**: Vanilla JavaScript moderno
-- **Módulos ES**: Sistema de organização e importação/exportação de código
-- **LocalStorage API**: Para persistência de dados do carrinho
+- **React Router**: Roteamento para aplicações React
+- **Context API**: Gerenciamento de estado global
+- **Custom Hooks**: Lógica reutilizável do React
+- **LocalStorage API**: Persistência de dados do carrinho
 - **Font Awesome**: Biblioteca de ícones
 - **Google Fonts**: Fontes personalizadas (Amatic SC e Libre Baskerville)
 
-<img src="purple-divider.svg" width="100%" height="6">
+<img src="purple-divider.svg" width="100%" height="4" alt="Purple decorative divider with animation">
 
-## 📦 Estrutura do Projeto
+## 📦 Arquitetura e Estrutura
+
+### Arquitetura do Projeto
+O projeto segue uma arquitetura baseada em componentes React com separação clara de responsabilidades:
 
 ```
-FlorDoCampo/
-├── index.html                 # Página principal
-├── package.json               # Configurações e dependências
-├── style.css                  # Estilos globais
-├── vite.config.js             # Configuração do Vite
-├── CartPage/                  # Página do carrinho
-│   ├── carrinho.css
-│   └── carrinho.html
-├── CheckoutPage/              # Página de finalização da compra
-│   ├── checkout.css
-│   └── checkout.html
-├── JavaScript/                # Arquivos JavaScript
-│   ├── carrinho.js            # Lógica do carrinho
-│   ├── catalogo.js            # Gerenciamento de produtos
-│   ├── checkout.js            # Lógica de checkout
-│   ├── main.js                # Ponto de entrada principal
-│   ├── produto.js             # Detalhes do produto
-│   ├── storage.js             # Persistência de dados
-│   └── dados/
-│       └── produtos.js        # Banco de dados de produtos
-├── LoginPage/                 # Página de login
-│   ├── login.css
-│   └── login.html
-├── ProductPage/               # Página de detalhes do produto
-│   ├── produto.css
-│   └── produto.html
-└── src/
-    └── assets/
-        └── img/               # Imagens de produtos
+src/
+├── components/          # Componentes reutilizáveis
+│   ├── Navbar.tsx      # Barra de navegação
+│   ├── CartSidebar.tsx # Carrinho lateral
+│   ├── ProductCard.tsx # Card de produto
+│   ├── Catalog.tsx     # Catálogo de produtos
+│   ├── HeroBanner.tsx  # Banner principal
+│   └── Footer.tsx      # Rodapé
+├── contexts/            # Contextos React (gerenciamento de estado)
+│   └── CartContext.tsx # Contexto do carrinho
+├── hooks/               # Custom hooks
+│   └── useCart.ts      # Hook para lógica do carrinho
+├── pages/               # Páginas principais
+│   └── HomePage.tsx    # Página inicial
+├── types/               # Definições TypeScript
+│   └── index.ts        # Interfaces e tipos
+├── utils/               # Funções utilitárias
+│   └── helpers.ts      # Helpers de formatação
+├── data/                # Dados estáticos
+│   └── produtos.ts     # Base de dados de produtos
+├── App.tsx             # Componente raiz
+└── main.tsx            # Ponto de entrada da aplicação
 ```
 
-<img src="purple-divider.svg" width="100%" height="6">
+### Padrões de Design Utilizados
+- **Component Pattern**: Componentes modulares e reutilizáveis
+- **Context Pattern**: Gerenciamento de estado global com Context API
+- **Custom Hooks Pattern**: Lógica reutilizável extraída em hooks
+- **Compound Components**: Componentes que trabalham juntos
+- **Provider Pattern**: Fornecimento de dados através da árvore de componentes
 
-## 🛠️ Como Funciona o Vite
+<img src="purple-divider.svg" width="100%" height="4" alt="Purple decorative divider with animation">
 
-O Vite é uma ferramenta de build moderna que proporciona uma experiência de desenvolvimento mais rápida para projetos web. No nosso projeto, ele é responsável por:
+## 🛠️ Como Funciona o Vite com React
 
-1. **Dev Server com HMR**: Oferece hot module replacement para atualizações instantâneas durante o desenvolvimento
-2. **Importação de Módulos ES**: Suporta nativamente o sistema de módulos ES6+
-3. **Build Otimizado**: Gera arquivos otimizados para produção
-4. **Suporte a CSS com PostCSS**: Processa arquivos CSS com features modernas
-5. **Configuração por Arquivo**: Através do `vite.config.js` definimos o comportamento de build
+O Vite é otimizado para desenvolvimento moderno com React:
 
-Nossa configuração do Vite inclui:
+1. **Hot Module Replacement (HMR)**: Atualizações instantâneas de componentes React
+2. **TypeScript Support**: Suporte nativo ao TypeScript
+3. **ES Modules**: Importação rápida de módulos
+4. **Plugin System**: Extensibilidade através de plugins
+5. **Build Otimizado**: Bundling otimizado para produção
 
-```javascript
-import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
-import { resolve } from 'path'
+Nossa configuração inclui:
+- Plugin React oficial (`@vitejs/plugin-react`)
+- TailwindCSS integrado via plugin
+- TypeScript para tipagem estática
+- Build otimizado com tree-shaking
 
-export default defineConfig({
-  // Uso de caminhos relativos para desenvolvimento e preview
-  base: './',
-  
-  plugins: [
-    tailwindcss(),
-  ],
-  build: {
-    outDir: 'dist',
-    emptyOutDir: true,
-    copyPublicDir: true,
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
+<img src="purple-divider.svg" width="100%" height="4" alt="Purple decorative divider with animation">
+
+## � Fluxo da Aplicação React
+
+### Gerenciamento de Estado
+- **CartContext**: Centraliza o estado do carrinho usando Context API
+- **useCart Hook**: Encapsula toda a lógica do carrinho (adicionar, remover, atualizar)
+- **LocalStorage**: Persistência automática do carrinho entre sessões
+
+### Fluxo de Dados
+1. **Produtos**: Carregados estaticamente de `data/produtos.ts`
+2. **Carrinho**: Gerenciado pelo `CartContext` e persistido no `localStorage`
+3. **UI**: Componentes React consomem dados via hooks e context
+4. **Interações**: Eventos propagados através de callbacks e context
+
+<img src="purple-divider.svg" width="100%" height="4" alt="Purple decorative divider with animation">
+
+## 🧠 Funcionalidades Principais
+
+### ✅ Implementadas
+- **Catálogo Dinâmico**: Listagem e filtros por categoria
+- **Busca em Tempo Real**: Busca instantânea por nome do produto
+- **Carrinho Lateral**: Adicionar/remover/atualizar produtos
+- **Persistência**: Carrinho mantido entre sessões
+- **UI Responsiva**: Design adaptável para todos os dispositivos
+- **Tipagem TypeScript**: Código type-safe e autocompletar
+- **Performance**: Otimizações do React 19 e Vite
+
+### 🚧 Em Desenvolvimento
+- **Página de Produto**: Detalhes individuais de cada produto
+- **Checkout**: Processo completo de finalização
+- **Autenticação**: Sistema de login/registro
+- **Roteamento**: Navegação entre páginas
+
+<img src="purple-divider.svg" width="100%" height="4" alt="Purple decorative divider with animation">
+
+## ⚠️ Melhorias Implementadas
+
+✅ **Arquitetura Limpa**: Código organizado em módulos especializados  
+✅ **Tipagem Forte**: TypeScript para maior segurança e produtividade  
+✅ **Performance**: React 19 + Vite para velocidade máxima  
+✅ **Manutenibilidade**: Componentes modulares e reutilizáveis  
+✅ **Estado Global**: Context API para gerenciamento centralizado  
+✅ **Persistência**: LocalStorage integrado via hooks  
+
+<img src="purple-divider.svg" width="100%" height="4" alt="Purple decorative divider with animation">
+
+## 🚀 Como Executar o Projeto
+
+### Pré-requisitos
+- Node.js 18+ 
+- npm ou yarn
+
+### Instalação e Execução
+
+1. **Clone e instale dependências:**
+   ```bash
+   git clone <repository-url>
+   cd FlorDoCampo
+   npm install
+   ```
+
+2. **Desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+   Acesse: http://localhost:5173
+
+3. **Build para produção:**
+   ```bash
+   npm run build
+   ```
+
+4. **Preview da build:**
+   ```bash
+   npm run preview
+   ```
+
+5. **Verificação de tipos:**
+   ```bash
+   npm run lint
+   ```
+
+<img src="purple-divider.svg" width="100%" height="4" alt="Purple decorative divider with animation">
+
+## 📋 Scripts Disponíveis
+
+- `npm run dev` - Servidor de desenvolvimento
+- `npm run build` - Build de produção  
+- `npm run preview` - Preview da build
+- `npm run lint` - Verificação TypeScript
+
+<img src="purple-divider.svg" width="100%" height="4" alt="Purple decorative divider with animation">
+
+<div align="center">
+  <p>Desenvolvido com 💚 pelo grupo usando React + TypeScript</p>
+  <p><strong>Versão 2.0</strong> - Agora com React!</p>
+</div>
         carrinho: resolve(__dirname, 'CartPage/carrinho.html'),
         checkout: resolve(__dirname, 'CheckoutPage/checkout.html'),
         login: resolve(__dirname, 'LoginPage/login.html'),
