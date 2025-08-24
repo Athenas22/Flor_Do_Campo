@@ -4,21 +4,21 @@ import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
 
 export default defineConfig({
-  // Use relative paths for development and preview
   base: './',
-  
   plugins: [
     react(),
     tailwindcss(),
   ],
-    build: {
+  build: {
     outDir: 'dist',
     emptyOutDir: true,
-    copyPublicDir: true,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html')
+        main: resolve(__dirname, 'index-react.html')
       }
     }
+  },
+  esbuild: {
+    jsxInject: `import React from 'react'`
   }
 })
