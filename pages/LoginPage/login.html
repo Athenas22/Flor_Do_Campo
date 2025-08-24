@@ -6,51 +6,239 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <title>Login - Flor do Campo</title><link rel="stylesheet" href="../style.css">
+    <title>Login - Flor do Campo</title>
+    <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="./login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
-<body>
-    <nav class="navbar">        <div class="logo">
-            <a href="../index.html">
-                <h1>Flor do Campo 🌼</h1>
-            </a>
-        </div>
-        <div class="nav-right">
-            <div class="search-bar">
-                <input type="text" placeholder="Buscar produtos...">
-                <button><i class="fas fa-search"></i></button>
-            </div>            <div class="nav-icons">
-                <a href="../CartPage/carrinho.html"><i class="fas fa-shopping-cart"></i></a>
-                <a href="./login.html" class="active"><i class="fas fa-user"></i></a>
+<body class="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+    
+    <!-- Navbar -->
+    <nav class="bg-white/80 backdrop-blur-lg shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="logo">
+                <a href="../../index.html" class="flex items-center gap-3 text-2xl font-bold text-green-700 hover:text-green-600 transition-colors">
+                    <i class="fas fa-leaf text-green-600"></i>
+                    Flor do Campo
+                </a>
+            </div>
+            <div class="nav-right flex items-center space-x-6">
+                <a href="../CartPage/carrinho.html" class="p-3 text-gray-600 hover:text-green-600 transition-colors relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </a>
+                <a href="./login.html" class="p-3 text-green-600">
+                    <i class="fas fa-user text-xl"></i>
+                </a>
             </div>
         </div>
     </nav>
 
-    <main class="login-container">
-        <div class="login-box">
-            <h2>Entrar na Conta</h2>
-            <form class="login-form" id="login-form">
-                <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" required placeholder="seu@email.com">
+    <!-- Background decorativo -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-emerald-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute top-40 left-40 w-80 h-80 bg-teal-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse" style="animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="relative flex items-center justify-center min-h-screen py-12 px-4">
+        <div class="w-full max-w-lg">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Entre na sua conta</h1>
+                <p class="text-lg text-gray-600">Bem-vindo de volta à nossa comunidade natural</p>
+            </div>
+
+            <!-- Login Card -->
+            <div class="bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/20 p-8">
+                <!-- Mode Toggle -->
+                <div class="flex bg-gray-100 rounded-2xl p-1 mb-8">
+                    <button type="button" id="login-tab" class="flex-1 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 bg-white text-green-700 shadow-md">
+                        Entrar
+                    </button>
+                    <button type="button" id="register-tab" class="flex-1 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 text-gray-500 hover:text-gray-700">
+                        Cadastrar
+                    </button>
                 </div>
-                <div class="form-group">
-                    <label for="password">Senha</label>
-                    <input type="password" id="password" required placeholder="Sua senha">
+
+                <!-- Login Form -->
+                <form id="login-form" class="space-y-6">
+                    <!-- Nome (only for register) -->
+                    <div id="name-field" class="hidden">
+                        <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Nome completo</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-user text-gray-400"></i>
+                            </div>
+                            <input type="text" id="name" class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200" placeholder="Seu nome completo">
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-gray-400"></i>
+                            </div>
+                            <input type="email" id="email" required class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200" placeholder="seu@email.com">
+                        </div>
+                    </div>
+
+                    <!-- Senha -->
+                    <div>
+                        <label for="password" class="block text-sm font-semibold text-gray-700 mb-2">Senha</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                            <input type="password" id="password" required class="block w-full pl-10 pr-12 py-3 border border-gray-300 rounded-xl placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200" placeholder="Sua senha">
+                            <button type="button" id="toggle-password" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Confirmar Senha (only for register) -->
+                    <div id="confirm-password-field" class="hidden">
+                        <label for="confirm-password" class="block text-sm font-semibold text-gray-700 mb-2">Confirmar senha</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                            <input type="password" id="confirm-password" class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200" placeholder="Confirme sua senha">
+                        </div>
+                    </div>
+
+                    <!-- Options (only for login) -->
+                    <div id="login-options" class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-700">Lembrar de mim</label>
+                        </div>
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-green-600 hover:text-green-500 transition-colors">Esqueceu a senha?</a>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <button type="submit" class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                            <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                                <i id="submit-icon" class="fas fa-sign-in-alt text-green-300 group-hover:text-green-200"></i>
+                            </span>
+                            <span id="submit-text">Entrar</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Divisor -->
+                <div class="mt-8">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-gray-500">Ou continue com</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Login -->
+                    <div class="mt-6 grid grid-cols-2 gap-3">
+                        <button type="button" class="w-full inline-flex justify-center py-3 px-4 border border-gray-300 rounded-xl shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition-colors">
+                            <i class="fab fa-google text-red-500"></i>
+                            <span class="ml-2">Google</span>
+                        </button>
+                        <button type="button" class="w-full inline-flex justify-center py-3 px-4 border border-gray-300 rounded-xl shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition-colors">
+                            <i class="fab fa-facebook-f text-blue-600"></i>
+                            <span class="ml-2">Facebook</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="form-options">
-                    <label class="remember-me">
-                        <input type="checkbox" id="lembrar"> Lembrar-me
-                    </label>
-                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
-                </div>
-                <button type="submit" class="btn-login">Entrar</button>
-            </form>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center mt-8">
+                <p class="text-sm text-gray-600">
+                    Ao entrar, você concorda com nossos 
+                    <a href="#" class="font-medium text-green-600 hover:text-green-500">Termos de Uso</a> 
+                    e 
+                    <a href="#" class="font-medium text-green-600 hover:text-green-500">Política de Privacidade</a>
+                </p>
+            </div>
         </div>
     </main>
-    <footer>
-        <p>&copy; 2023 Flor do Campo. Todos os direitos reservados.</p>
-    </footer>    <script type="module" src="../js/login.js"></script>
+
+    <script type="module" src="../../JavaScript/login.js"></script>
+    <script>
+        // Toggle between login and register
+        const loginTab = document.getElementById('login-tab');
+        const registerTab = document.getElementById('register-tab');
+        const nameField = document.getElementById('name-field');
+        const confirmPasswordField = document.getElementById('confirm-password-field');
+        const loginOptions = document.getElementById('login-options');
+        const submitText = document.getElementById('submit-text');
+        const submitIcon = document.getElementById('submit-icon');
+
+        let isLogin = true;
+
+        loginTab.addEventListener('click', () => {
+            isLogin = true;
+            updateFormMode();
+        });
+
+        registerTab.addEventListener('click', () => {
+            isLogin = false;
+            updateFormMode();
+        });
+
+        function updateFormMode() {
+            if (isLogin) {
+                loginTab.className = 'flex-1 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 bg-white text-green-700 shadow-md';
+                registerTab.className = 'flex-1 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 text-gray-500 hover:text-gray-700';
+                nameField.classList.add('hidden');
+                confirmPasswordField.classList.add('hidden');
+                loginOptions.classList.remove('hidden');
+                submitText.textContent = 'Entrar';
+                submitIcon.className = 'fas fa-sign-in-alt text-green-300 group-hover:text-green-200';
+            } else {
+                registerTab.className = 'flex-1 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 bg-white text-green-700 shadow-md';
+                loginTab.className = 'flex-1 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 text-gray-500 hover:text-gray-700';
+                nameField.classList.remove('hidden');
+                confirmPasswordField.classList.remove('hidden');
+                loginOptions.classList.add('hidden');
+                submitText.textContent = 'Criar conta';
+                submitIcon.className = 'fas fa-user-plus text-green-300 group-hover:text-green-200';
+            }
+        }
+
+        // Toggle password visibility
+        document.getElementById('toggle-password').addEventListener('click', function() {
+            const passwordField = document.getElementById('password');
+            const icon = this.querySelector('i');
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                icon.className = 'fas fa-eye-slash';
+            } else {
+                passwordField.type = 'password';
+                icon.className = 'fas fa-eye';
+            }
+        });
+
+        // Update cart count
+        function updateCartCount() {
+            const cartCount = document.getElementById('cart-count');
+            const cart = JSON.parse(localStorage.getItem('carrinho')) || [];
+            if (cartCount) {
+                cartCount.textContent = cart.length;
+            }
+        }
+
+        // Initialize
+        updateCartCount();
+    </script>
 </body>
 </html>

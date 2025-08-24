@@ -3,14 +3,223 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cinzel:wght@400..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cinzel:wght@400..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400..700;1,400..700&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flor do Campo - Produtos Naturais</title>
+    <title>Flor do Campo - Produtos Naturais</title>    
+    <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <script type="module" src="./js/main.js"></script>
 </head>
 <body class="bg-gray-50">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <input type="checkbox" id="cart-toggle" class="hidden peer" />
+
+    <nav class="navbar bg-white shadow-md sticky top-0 z-30">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <h1 class="text-2xl font-bold text-gray-800">Flor do Campo 🌼</h1>
+                </a>
+            </div>
+            <div class="nav-right flex items-center space-x-6">
+                <div class="search-bar hidden md:flex">
+                    <input type="text" placeholder="Buscar produtos..." class="border rounded-l-md p-2" />
+                    <button class="bg-green-600 text-white px-4 rounded-r-md hover:bg-green-700"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="nav-icons flex items-center space-x-4">
+                    <label for="cart-toggle" class="cart-icon cursor-pointer relative">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="cart-count absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </label>
+                    <a href="./pages/LoginPage/login.html" class="user-icon">
+                        <i class="fas fa-user text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar fixed right-0 top-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-40 peer-checked:translate-x-0">
+        <div class="p-4 border-b">
+            <div class="flex justify-between items-center">
+                <h2 class="text-lg font-semibold">Seu Carrinho</h2>
+                <label for="cart-toggle" class="cursor-pointer">
+                    <i class="fas fa-times text-xl"></i>
+                </label>
+            </div>
+        </div>
+        <div class="p-4">
+            <div id="cart-items">
+                <!-- Cart items will be loaded here -->
+                <p class="text-gray-500 text-center py-8">Seu carrinho está vazio</p>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 border-t bg-white">
+            <a href="./pages/CartPage/carrinho.html" class="block w-full bg-green-600 text-white text-center py-3 rounded-lg hover:bg-green-700 transition-colors">
+                Ver Carrinho Completo
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="min-h-screen">
+        <!-- Hero Section -->
+        <section class="hero-banner bg-gradient-to-r from-green-100 to-emerald-50 py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
+                    BEM-VINDO À FLOR DO CAMPO
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Produtos naturais selecionados para seu bem-estar
+                </p>
+                <button class="bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-700 transition-colors" onclick="document.getElementById('produtos').scrollIntoView({behavior: 'smooth'})">
+                    Explorar Produtos
+                </button>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="py-16 bg-white" id="produtos">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <div class="flex items-center justify-center gap-2 mb-4">
+                        <i class="fas fa-star text-yellow-500 text-2xl"></i>
+                        <h2 class="text-3xl font-bold text-gray-800">Produtos em Destaque</h2>
+                    </div>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Descubra nossa seleção especial de produtos naturais com qualidade premium
+                    </p>
+                </div>
+                
+                <div id="featured-products" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Featured products will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Full Catalog -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <div class="flex items-center justify-center gap-2 mb-4">
+                        <i class="fas fa-shopping-bag text-green-600 text-2xl"></i>
+                        <h2 class="text-3xl font-bold text-gray-800">Nosso Catálogo Completo</h2>
+                    </div>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Explore nossa seleção completa de produtos naturais organizados por categoria
+                    </p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button class="filter-btn active bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition-colors" data-category="todos">
+                        Todos
+                    </button>
+                    <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full hover:bg-gray-300 transition-colors" data-category="chás">
+                        🍃 Chás
+                    </button>
+                    <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full hover:bg-gray-300 transition-colors" data-category="cosméticos">
+                        💄 Cosméticos
+                    </button>
+                    <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full hover:bg-gray-300 transition-colors" data-category="alimentos">
+                        🍯 Alimentos
+                    </button>
+                    <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full hover:bg-gray-300 transition-colors" data-category="suplementos">
+                        💊 Suplementos
+                    </button>
+                </div>
+
+                <div id="catalog-products" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Catalog products will be loaded here -->
+                </div>
+
+                <div class="text-center mt-12">
+                    <button class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                        Ver Todos os Produtos
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-green-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fas fa-leaf text-2xl"></i>
+                        <h3 class="text-xl font-bold">Flor do Campo</h3>
+                    </div>
+                    <p class="text-green-100 mb-4">
+                        Produtos naturais e orgânicos para seu bem-estar e qualidade de vida.
+                        Cuidando de você e do meio ambiente.
+                    </p>
+                    <p class="text-green-200 text-sm">100% Natural</p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4 text-green-100">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-home mr-2"></i>Início</a></li>
+                        <li><a href="#produtos" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-shopping-bag mr-2"></i>Produtos</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-info-circle mr-2"></i>Sobre</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-envelope mr-2"></i>Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4 text-green-100">Categorias</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-leaf mr-2"></i>Chás</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-spa mr-2"></i>Cosméticos</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-apple-alt mr-2"></i>Alimentos</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-pills mr-2"></i>Suplementos</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4 text-green-100">Contato</h4>
+                    <div class="space-y-2">
+                        <p class="text-green-200">
+                            <i class="fas fa-phone mr-2"></i>
+                            Telefone<br>
+                            (11) 99999-9999
+                        </p>
+                        <p class="text-green-200">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Email<br>
+                            contato@flordocampo.com
+                        </p>
+                    </div>
+                    <div class="mt-4">
+                        <h5 class="font-medium mb-2 text-green-100">Siga-nos:</h5>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fab fa-facebook text-xl"></i></a>
+                            <a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                            <a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fab fa-whatsapp text-xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-green-700 mt-8 pt-8 text-center">
+                <p class="text-green-200">© 2025 Flor do Campo. Todos os direitos reservados.</p>
+                <div class="mt-2">
+                    <a href="#" class="text-green-200 hover:text-white transition-colors text-sm mr-4">Política de Privacidade</a>
+                    <a href="#" class="text-green-200 hover:text-white transition-colors text-sm mr-4">Termos de Uso</a>
+                    <a href="#" class="text-green-200 hover:text-white transition-colors text-sm">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="./JavaScript/main.js"></script>
 </body>
 </html>
