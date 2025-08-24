@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
 
@@ -7,6 +8,7 @@ export default defineConfig({
   base: './',
   
   plugins: [
+    react(),
     tailwindcss(),
   ],
     build: {
@@ -15,11 +17,8 @@ export default defineConfig({
     copyPublicDir: true,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        carrinho: resolve(__dirname, 'CartPage/carrinho.html'),
-        checkout: resolve(__dirname, 'CheckoutPage/checkout.html'),
-        login: resolve(__dirname, 'LoginPage/login.html'),
-        produto: resolve(__dirname, 'ProductPage/produto.html')      }
+        main: resolve(__dirname, 'index.html')
+      }
     }
   }
 })

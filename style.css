@@ -7,6 +7,11 @@
   font-family: 'Libre Baskerville', serif;
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 :root {
   --primary-color: #2e7d32;
   --secondary-color: #388e3c;
@@ -28,9 +33,19 @@
   backdrop-filter: blur(10px);
   box-shadow: var(--nav-shadow);
   border-bottom: 1px solid var(--nav-border);
-  position: sticky;
+  position: fixed !important; /* Forçar posição fixa */
   top: 0;
-  z-index: 50 !important; /* Garantir que a navbar fique acima de tudo */
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 50; /* Garantir que a navbar fique acima do conteúdo, mas abaixo do carrinho */
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 25px rgba(46, 125, 50, 0.2);
+  border-bottom: 2px solid rgba(129, 199, 132, 0.4);
 }
 
 .logo h1 {
@@ -470,7 +485,9 @@ footer {
   align-items: center;
   text-align: center;
   color: #fff;
-  margin-bottom: 0; /* Changed from 30px to 0 */
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .banner-content {
@@ -643,20 +660,9 @@ p, span, a, li, button, input, textarea, label, div {
 
 /* Ajustes para o carrinho lateral */
 aside.fixed {
-  top: var(--navbar-height, 120px) !important; /* Posiciona o carrinho abaixo da navbar */
-  height: calc(100% - var(--navbar-height, 70px)) !important; /* Ajusta a altura */
-  z-index: 40 !important; /* Menor que a navbar, maior que o restante */
+  top: 0 !important; /* Posiciona o carrinho desde o topo */
+  height: 100% !important; /* Altura total */
   overflow-y: auto;
-}
-
-/* Garantir que o carrinho lateral esteja sempre acima de tudo */
-aside.fixed {
-  z-index: 9999 !important;
-}
-
-/* O overlay do carrinho também precisa estar acima do nav */
-.peer-checked\:visible.bg-black {
-  z-index: 39 !important;
 }
 
 /* Ajuste para a transição suave do carrinho */
@@ -795,4 +801,187 @@ button, .button {
 section h2 {
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
+}
+
+/* Slider moderno personalizado */
+.slider-modern {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 12px;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.slider-modern::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981, #059669);
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+  transition: all 0.3s ease;
+}
+
+.slider-modern::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+}
+
+.slider-modern::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981, #059669);
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+  transition: all 0.3s ease;
+}
+
+.slider-modern::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+}
+
+/* Slider clean - mais simples */
+.slider-clean {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.slider-clean::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #10b981;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.slider-clean::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.slider-clean::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #10b981;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+/* Slider premium - ultra moderno */
+.slider-premium {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 12px;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.slider-premium::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981, #059669, #047857);
+  cursor: pointer;
+  border: 4px solid white;
+  box-shadow: 
+    0 0 0 2px rgba(16, 185, 129, 0.2),
+    0 8px 25px rgba(16, 185, 129, 0.3),
+    0 0 20px rgba(16, 185, 129, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.slider-premium::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 
+    0 0 0 3px rgba(16, 185, 129, 0.3),
+    0 12px 35px rgba(16, 185, 129, 0.4),
+    0 0 30px rgba(16, 185, 129, 0.3);
+}
+
+.slider-premium::-webkit-slider-thumb:active {
+  transform: scale(1.05);
+  box-shadow: 
+    0 0 0 4px rgba(16, 185, 129, 0.4),
+    0 6px 20px rgba(16, 185, 129, 0.5),
+    0 0 25px rgba(16, 185, 129, 0.4);
+}
+
+.slider-premium::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981, #059669, #047857);
+  cursor: pointer;
+  border: 4px solid white;
+  box-shadow: 
+    0 0 0 2px rgba(16, 185, 129, 0.2),
+    0 8px 25px rgba(16, 185, 129, 0.3),
+    0 0 20px rgba(16, 185, 129, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animações personalizadas */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.6);
+  }
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
 }
