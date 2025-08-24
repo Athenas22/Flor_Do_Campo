@@ -13,27 +13,55 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
 <body class="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
-    
-    <!-- Navbar -->
-    <nav class="bg-white/80 backdrop-blur-lg shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <input type="checkbox" id="cart-toggle" class="hidden peer" />
+
+    <nav class="navbar bg-white shadow-md fixed top-0 left-0 right-0 z-30">
+        <div class="container mx-auto flex justify-between items-center p-4">
             <div class="logo">
-                <a href="../../index.html" class="flex items-center gap-3 text-2xl font-bold text-green-700 hover:text-green-600 transition-colors">
-                    <i class="fas fa-leaf text-green-600"></i>
-                    Flor do Campo
+                <a href="../../index.html" class="logo-link">
+                    <h1 class="text-2xl font-bold text-gray-800">Flor do Campo 🌼</h1>
                 </a>
             </div>
             <div class="nav-right flex items-center space-x-6">
-                <a href="../CartPage/carrinho.html" class="p-3 text-gray-600 hover:text-green-600 transition-colors relative">
-                    <i class="fas fa-shopping-cart text-xl"></i>
-                    <span id="cart-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
-                </a>
-                <a href="./login.html" class="p-3 text-green-600">
-                    <i class="fas fa-user text-xl"></i>
-                </a>
+                <div class="search-bar hidden md:flex">
+                    <input type="text" placeholder="Buscar produtos..." class="border rounded-l-md p-2" />
+                    <button class="bg-green-600 text-white px-4 rounded-r-md hover:bg-green-700"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="nav-icons flex items-center space-x-4">
+                    <label for="cart-toggle" class="cart-icon cursor-pointer relative">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="cart-count absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </label>
+                    <a href="./login.html" class="user-icon">
+                        <i class="fas fa-user text-xl"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar fixed right-0 top-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-40 peer-checked:translate-x-0">
+        <div class="p-4 border-b">
+            <div class="flex justify-between items-center">
+                <h2 class="text-lg font-semibold">Seu Carrinho</h2>
+                <label for="cart-toggle" class="cursor-pointer">
+                    <i class="fas fa-times text-xl"></i>
+                </label>
+            </div>
+        </div>
+        <div class="p-4">
+            <div id="cart-items">
+                <!-- Cart items will be loaded here -->
+                <p class="text-gray-500 text-center py-8">Seu carrinho está vazio</p>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 border-t bg-white">
+            <a href="../CartPage/carrinho.html" class="block w-full bg-green-600 text-white text-center py-3 rounded-lg hover:bg-green-700 transition-colors">
+                Ver Carrinho Completo
+            </a>
+        </div>
+    </div>
 
     <!-- Background decorativo -->
     <div class="absolute inset-0 overflow-hidden">
@@ -43,7 +71,7 @@
     </div>
 
     <!-- Main Content -->
-    <main class="relative flex items-center justify-center min-h-screen py-12 px-4">
+    <main class="relative flex items-center justify-center min-h-screen py-12 px-4" style="padding-top: calc(var(--navbar-height) + 3rem);">
         <div class="w-full max-w-lg">
             <!-- Header -->
             <div class="text-center mb-8">
@@ -170,6 +198,78 @@
             </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="bg-green-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fas fa-leaf text-2xl"></i>
+                        <h3 class="text-xl font-bold">Flor do Campo</h3>
+                    </div>
+                    <p class="text-green-100 mb-4">
+                        Produtos naturais e orgânicos para seu bem-estar e qualidade de vida.
+                        Cuidando de você e do meio ambiente.
+                    </p>
+                    <p class="text-green-200 text-sm">100% Natural</p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4 text-green-100">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../../index.html" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-home mr-2"></i>Início</a></li>
+                        <li><a href="../../index.html#produtos" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-shopping-bag mr-2"></i>Produtos</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-info-circle mr-2"></i>Sobre</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-envelope mr-2"></i>Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4 text-green-100">Categorias</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-leaf mr-2"></i>Chás</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-spa mr-2"></i>Cosméticos</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-apple-alt mr-2"></i>Alimentos</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-pills mr-2"></i>Suplementos</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4 text-green-100">Contato</h4>
+                    <div class="space-y-2">
+                        <p class="text-green-200">
+                            <i class="fas fa-phone mr-2"></i>
+                            Telefone<br>
+                            (11) 99999-9999
+                        </p>
+                        <p class="text-green-200">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Email<br>
+                            contato@flordocampo.com
+                        </p>
+                    </div>
+                    <div class="mt-4">
+                        <h5 class="font-medium mb-2 text-green-100">Siga-nos:</h5>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fab fa-facebook text-xl"></i></a>
+                            <a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                            <a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fab fa-whatsapp text-xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-green-700 mt-8 pt-8 text-center">
+                <p class="text-green-200">© 2025 Flor do Campo. Todos os direitos reservados.</p>
+                <div class="mt-2">
+                    <a href="#" class="text-green-200 hover:text-white transition-colors text-sm mr-4">Política de Privacidade</a>
+                    <a href="#" class="text-green-200 hover:text-white transition-colors text-sm mr-4">Termos de Uso</a>
+                    <a href="#" class="text-green-200 hover:text-white transition-colors text-sm">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script type="module" src="../../JavaScript/login.js"></script>
     <script>

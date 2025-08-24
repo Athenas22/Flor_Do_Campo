@@ -33,12 +33,13 @@ html, body {
   backdrop-filter: blur(10px);
   box-shadow: var(--nav-shadow);
   border-bottom: 1px solid var(--nav-border);
-  position: fixed !important; /* Forçar posição fixa */
+  position: fixed !important; /* Ensure navbar stays fixed */
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 50; /* Garantir que a navbar fique acima do conteúdo, mas abaixo do carrinho */
+  height: var(--navbar-height); /* Fixed height */
+  z-index: 50;
   transition: all 0.3s ease-in-out;
 }
 
@@ -196,6 +197,60 @@ section h2::after {
   color: inherit;
   display: block;
   transition: transform 0.2s ease;
+}
+
+.banner-boas-vindas {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: url('/src/assets/img/banner-morangos.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  margin-top: 0;
+}
+
+.banner-content {
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.banner-content h1 {
+  font-family: 'Libre Baskerville', serif;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-size: 3.5rem;
+}
+
+.banner-content p {
+  color: #ffffff;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  font-size: 1.25rem;
+}
+
+.btn-explorar {
+  background-color: #2e7d32 !important;
+  color: white !important;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-explorar:hover {
+  background-color: #1b5e20 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
 }
 
 .produto-link:hover {
@@ -473,6 +528,14 @@ footer {
   margin-bottom: 1rem;
 }
 
+/* Alinhamento de ícones com títulos */
+.title-icon {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  line-height: 1;
+}
+
 /* Banner de Boas-Vindas */
 .banner-boas-vindas {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -488,6 +551,7 @@ footer {
   width: 100%;
   margin: 0;
   padding: 0;
+  margin-top: var(--navbar-height); /* Add top margin to account for fixed navbar */
 }
 
 .banner-content {

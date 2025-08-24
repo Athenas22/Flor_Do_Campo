@@ -11,6 +11,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize search functionality
     initializeSearch();
     
+    // Check for search parameter in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get('search');
+    if (searchQuery) {
+        const searchInput = document.querySelector('.search-bar input');
+        if (searchInput) {
+            searchInput.value = searchQuery;
+            searchProducts(searchQuery);
+        }
+    }
+    
     // Initialize cart toggle
     initializeCartToggle();
     
@@ -27,8 +38,10 @@ document.addEventListener('DOMContentLoaded', function() {
 function updateCartCount() {
     const cartCount = document.querySelector('.cart-count');
     const cart = JSON.parse(localStorage.getItem('carrinho')) || [];
+    
     if (cartCount) {
-        cartCount.textContent = cart.length;
+        const totalItems = cart.reduce((total, item) => total + item.quantidade, 0);
+        cartCount.textContent = totalItems;
     }
 }
 
@@ -86,6 +99,14 @@ function initializeCategoryFilters() {
 
 function searchProducts(query) {
     console.log('Buscando por:', query);
+    
+    // Se não estamos na página principal, redirecionar com o termo de busca
+    if (!window.location.pathname.endsWith('index.html') && !window.location.pathname.endsWith('/')) {
+        const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+        window.location.href = `${baseUrl}../../index.html?search=${encodeURIComponent(query)}`;
+        return;
+    }
+    
     const filteredProducts = produtos.filter(produto => 
         produto.nome.toLowerCase().includes(query.toLowerCase()) ||
         produto.categoria.toLowerCase().includes(query.toLowerCase()) ||
@@ -177,26 +198,6 @@ function createProductCard(produto) {
     `;
 }
 
-function addToCart(produtoId) {
-    const produto = produtos.find(p => p.id === produtoId);
-    if (!produto || !produto.disponivel) return;
-    
-    let cart = JSON.parse(localStorage.getItem('carrinho')) || [];
-    const existingItem = cart.find(item => item.id === produtoId);
-    
-    if (existingItem) {
-        existingItem.quantidade += 1;
-    } else {
-        cart.push({ ...produto, quantidade: 1 });
-    }
-    
-    localStorage.setItem('carrinho', JSON.stringify(cart));
-    updateCartCount();
-    
-    // Show feedback
-    showToast('Produto adicionado ao carrinho!', 'success');
-}
-
 function toggleFavorite(produtoId) {
     let favorites = JSON.parse(localStorage.getItem('favoritos')) || [];
     const index = favorites.indexOf(produtoId);
@@ -282,7 +283,6 @@ window.FlorDoCampo = {
     searchProducts,
     loadFeaturedProducts,
     loadCatalog,
-    addToCart,
     toggleFavorite,
     viewProduct,
     shareProduct

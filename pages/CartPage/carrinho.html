@@ -15,35 +15,36 @@
 <body class="min-h-screen bg-gray-50">
     
     <!-- Navbar -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <nav class="navbar bg-white shadow-md fixed top-0 left-0 right-0 z-30">
+        <div class="container mx-auto flex justify-between items-center p-4">
             <div class="logo">
-                <a href="../../index.html" class="flex items-center gap-3 text-2xl font-bold text-green-700 hover:text-green-600 transition-colors">
-                    <i class="fas fa-leaf text-green-600"></i>
-                    Flor do Campo
+                <a href="../../index.html" class="logo-link">
+                    <h1 class="text-2xl font-bold text-gray-800">Flor do Campo 🌼</h1>
                 </a>
             </div>
             <div class="nav-right flex items-center space-x-6">
-                <a href="../../index.html" class="text-gray-600 hover:text-green-600 transition-colors">
-                    <i class="fas fa-home text-xl"></i>
-                </a>
-                <a href="./carrinho.html" class="p-3 text-green-600 relative">
-                    <i class="fas fa-shopping-cart text-xl"></i>
-                    <span id="cart-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
-                </a>
-                <a href="../LoginPage/login.html" class="p-3 text-gray-600 hover:text-green-600 transition-colors">
-                    <i class="fas fa-user text-xl"></i>
-                </a>
+                <div class="search-bar hidden md:flex">
+                    <input type="text" placeholder="Buscar produtos..." class="border rounded-l-md p-2" />
+                    <button class="bg-green-600 text-white px-4 rounded-r-md hover:bg-green-700"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="nav-icons flex items-center space-x-4">
+                    <a href="./carrinho.html" class="cart-icon cursor-pointer relative">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="cart-count absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </a>
+                    <a href="../LoginPage/login.html" class="user-icon">
+                        <i class="fas fa-user text-xl"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-6 py-8">
+    <main class="container mx-auto px-6 py-8" style="margin-top: 90px;">
         <!-- Header -->
         <div class="mb-8">
             <h1 class="text-4xl font-bold text-gray-900 mb-4">Seu Carrinho</h1>
-            <p id="cart-summary" class="text-lg text-gray-600">0 itens no carrinho</p>
         </div>
 
         <!-- Empty Cart State -->
@@ -174,18 +175,82 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-green-800 text-white py-8 mt-16">
-        <div class="container mx-auto px-6 text-center">
-            <div class="flex items-center justify-center gap-2 mb-4">
-                <i class="fas fa-leaf text-2xl"></i>
-                <h3 class="text-xl font-bold">Flor do Campo</h3>
+    <footer class="bg-green-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-leaf text-green-300 text-2xl mr-2"></i>
+                        <h3 class="text-xl font-bold">Flor do Campo</h3>
+                    </div>
+                    <p class="text-green-100 mb-4">
+                        Produtos naturais e orgânicos para seu bem-estar e qualidade de vida.
+                        Cuidando de você e do meio ambiente.
+                    </p>
+                    <p class="text-green-200 text-sm">100% Natural</p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4 text-green-100">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../../index.html" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-home mr-2"></i>Início</a></li>
+                        <li><a href="../../index.html#produtos" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-shopping-bag mr-2"></i>Produtos</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-info-circle mr-2"></i>Sobre</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-envelope mr-2"></i>Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4 text-green-100">Categorias</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-leaf mr-2"></i>Chás</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-spa mr-2"></i>Cosméticos</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-apple-alt mr-2"></i>Alimentos</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fas fa-pills mr-2"></i>Suplementos</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4 text-green-100">Contato</h4>
+                    <div class="space-y-2">
+                        <p class="text-green-200">
+                            <i class="fas fa-phone mr-2"></i>
+                            Telefone<br>
+                            (11) 99999-9999
+                        </p>
+                        <p class="text-green-200">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Email<br>
+                            contato@flordocampo.com
+                        </p>
+                    </div>
+                    <div class="mt-4">
+                        <h5 class="font-medium mb-2 text-green-100">Siga-nos:</h5>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fab fa-facebook text-xl"></i></a>
+                            <a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                            <a href="#" class="text-green-200 hover:text-white transition-colors"><i class="fab fa-whatsapp text-xl"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p class="text-green-200">© 2025 Flor do Campo. Todos os direitos reservados.</p>
+
+            <div class="border-t border-green-700 mt-8 pt-8 text-center">
+                <p class="text-green-200">© 2025 Flor do Campo. Todos os direitos reservados.</p>
+                <div class="mt-2">
+                    <a href="#" class="text-green-200 hover:text-white transition-colors text-sm mr-4">Política de Privacidade</a>
+                    <a href="#" class="text-green-200 hover:text-white transition-colors text-sm mr-4">Termos de Uso</a>
+                    <a href="#" class="text-green-200 hover:text-white transition-colors text-sm">FAQ</a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script type="module" src="../../JavaScript/carrinho.js"></script>
-    <script>
+    <script type="module">
+        // Import produtos data
+        import { produtos } from '../../JavaScript/dados/produtos.js';
+        
         // Cart Management
         let cart = JSON.parse(localStorage.getItem('carrinho')) || [];
         let appliedCoupon = null;
@@ -205,16 +270,13 @@
         function updateCartDisplay() {
             const emptyCart = document.getElementById('empty-cart');
             const cartContent = document.getElementById('cart-content');
-            const cartSummary = document.getElementById('cart-summary');
             
             if (cart.length === 0) {
                 emptyCart.classList.remove('hidden');
                 cartContent.classList.add('hidden');
-                cartSummary.textContent = '0 itens no carrinho';
             } else {
                 emptyCart.classList.add('hidden');
                 cartContent.classList.remove('hidden');
-                cartSummary.textContent = `${cart.length} ${cart.length === 1 ? 'item' : 'itens'} no carrinho`;
                 renderCartItems();
                 updateOrderSummary();
             }
@@ -222,18 +284,23 @@
 
         function renderCartItems() {
             const container = document.getElementById('cart-items');
-            container.innerHTML = cart.map(item => `
+            container.innerHTML = cart.map(item => {
+                // Find product data by ID
+                const produto = produtos.find(p => p.id === item.id);
+                if (!produto) return ''; // Skip if product not found
+                
+                return `
                 <div class="p-6">
                     <div class="flex items-center gap-4">
                         <div class="w-20 h-20 bg-gray-100 rounded-xl overflow-hidden flex-shrink-0">
-                            <img src="${item.imagem}" alt="${item.nome}" class="w-full h-full object-cover" 
+                            <img src="${produto.imagem}" alt="${produto.nome}" class="w-full h-full object-cover" 
                                  onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2YzZjRmNiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiM5OWEzYWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5JbWFnZW08L3RleHQ+PC9zdmc+'" />
                         </div>
                         
                         <div class="flex-1 min-w-0">
-                            <h3 class="text-lg font-semibold text-gray-900 truncate">${item.nome}</h3>
-                            <p class="text-sm text-gray-500 capitalize">${item.categoria}</p>
-                            <p class="text-xl font-bold text-green-600 mt-1">R$ ${item.preco.toFixed(2)}</p>
+                            <h3 class="text-lg font-semibold text-gray-900 truncate">${produto.nome}</h3>
+                            <p class="text-sm text-gray-500 capitalize">${produto.categoria}</p>
+                            <p class="text-xl font-bold text-green-600 mt-1">R$ ${produto.preco.toFixed(2)}</p>
                         </div>
                         
                         <div class="flex items-center gap-3">
@@ -255,11 +322,12 @@
                     
                     <div class="mt-4 flex justify-end">
                         <p class="text-lg font-semibold text-gray-900">
-                            Subtotal: R$ ${(item.preco * item.quantidade).toFixed(2)}
+                            Subtotal: R$ ${(produto.preco * item.quantidade).toFixed(2)}
                         </p>
                     </div>
                 </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
         function updateQuantity(productId, newQuantity) {
@@ -297,7 +365,10 @@
         }
 
         function updateOrderSummary() {
-            const subtotal = cart.reduce((sum, item) => sum + (item.preco * item.quantidade), 0);
+            const subtotal = cart.reduce((sum, item) => {
+                const produto = produtos.find(p => p.id === item.id);
+                return sum + (produto ? produto.preco * item.quantidade : 0);
+            }, 0);
             const shipping = subtotal >= 100 ? 0 : 15;
             const discount = appliedCoupon ? subtotal * 0.1 : 0;
             const total = subtotal + shipping - discount;
@@ -408,5 +479,8 @@
         window.updateQuantity = updateQuantity;
         window.removeFromCart = removeFromCart;
     </script>
+    
+    <!-- Add main.js for search functionality -->
+    <script type="module" src="../../JavaScript/main.js"></script>
 </body>
 </html>

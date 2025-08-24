@@ -8,12 +8,12 @@ const HeroBanner: React.FC = () => {
 
   return (
     <section className="banner-boas-vindas">
-      <div className="banner-content text-center">
-        <h1 className="text-4xl md:text-5xl font-bold">Bem-vindo à Flor do Campo</h1>
-        <p className="mt-4 text-lg">Produtos naturais selecionados para seu bem-estar</p>
+      <div className="banner-content">
+        <h1 className="text-4xl md:text-5xl">Bem-vindo à Flor do Campo</h1>
+        <p className="text-lg">Produtos naturais selecionados para seu bem-estar</p>
         <button 
           onClick={handleScrollToCatalog}
-          className="btn-explorar mt-8 inline-block bg-white text-green-800 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition-colors"
+          className="btn-explorar"
         >
           Explorar Produtos
         </button>
