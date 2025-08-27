@@ -5,15 +5,15 @@ import type { Usuario, CadastroData, LoginData, AuthResponse } from '../types'
  * Cadastra um novo usuário no sistema
  */
 export const cadastrarUsuario = async (dados: CadastroData): Promise<AuthResponse> => {
-  // Validar dados obrigatórios
-  if (!dados.email || !dados.senha || !dados.nome) {
-    return {
-      success: false,
-      message: 'Email, senha e nome são obrigatórios'
-    }
-  }
-
   try {
+    // Validar dados obrigatórios
+    if (!dados.email || !dados.senha || !dados.nome) {
+      return {
+        success: false,
+        message: 'Email, senha e nome são obrigatórios'
+      }
+    }
+
     // Criar usuário no auth
     const { data, error } = await supabase.auth.signUp({
       email: dados.email,
@@ -73,15 +73,15 @@ export const cadastrarUsuario = async (dados: CadastroData): Promise<AuthRespons
  * Faz login do usuário no sistema
  */
 export const loginUsuario = async (dados: LoginData): Promise<AuthResponse> => {
-  // Validar dados obrigatórios
-  if (!dados.email || !dados.senha) {
-    return {
-      success: false,
-      message: 'Email e senha são obrigatórios'
-    }
-  }
-
   try {
+    // Validar dados obrigatórios
+    if (!dados.email || !dados.senha) {
+      return {
+        success: false,
+        message: 'Email e senha são obrigatórios'
+      }
+    }
+
     // Login no auth
     const { data, error } = await supabase.auth.signInWithPassword({
       email: dados.email,
@@ -205,13 +205,6 @@ export const verificarUsuarioLogado = async (): Promise<AuthResponse> => {
  * Atualiza os dados do usuário logado
  */
 export const atualizarUsuario = async (dados: Partial<Usuario>): Promise<AuthResponse> => {
-  if (!dados.nome && !dados.telefone) {
-    return {
-      success: false,
-      message: 'Nenhum dado para atualizar'
-    }
-  }
-
   try {
     const { data: { user }, error: authError } = await supabase.auth.getUser()
 
